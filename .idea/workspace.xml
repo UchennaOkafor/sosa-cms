@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10e9e655-563d-4c92-b759-ed83e14dcb36" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLinters/jscs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/product/add.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/product/delete.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/product/edit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/product/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/product/view.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dash/products/add.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dash/products/delete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dash/products/edit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dash/products/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dash/products/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sosa-cms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,10 +103,6 @@
               <option name="myItemId" value="dash" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="product" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -200,7 +194,7 @@
       <option name="presentableId" value="Default" />
       <updated>1478043468520</updated>
       <workItem from="1478043470235" duration="894000" />
-      <workItem from="1478044411955" duration="179000" />
+      <workItem from="1478044411955" duration="227000" />
     </task>
     <task id="LOCAL-00001" summary="vcs commit">
       <created>1478043622279</created>
@@ -216,11 +210,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478044288836</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed folder structure">
+      <created>1478044601020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1478044601020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1073000" />
+    <option name="totallyTimeSpent" value="1121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -267,7 +268,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dash/product/add.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -275,7 +276,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/edit.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -283,7 +284,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/delete.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -291,7 +292,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/view.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -299,7 +300,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/index.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -314,7 +315,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/view.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
@@ -322,7 +323,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/add.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -330,7 +331,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/edit.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -338,7 +339,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/delete.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -346,7 +347,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/product/index.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="132" column="18" selection-start-line="132" selection-start-column="18" selection-end-line="132" selection-end-column="18" />
