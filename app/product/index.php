@@ -7,10 +7,10 @@
 
     <title>S O S A | Clothing</title>
 
-    <link rel="stylesheet" href="../assests/include/bootstrap-3.3.7.min.css">
-    <link rel="stylesheet" href="../assests/include/sidebar-nav.css">
-    <script src="../assests/include/jquery-3.1.1.min.js"></script>
-    <script src="../assests/include/bootstrap-3.3.7.min.js"></script>
+    <link rel="stylesheet" href="../../assests/include/bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="../../assests/include/sidebar-nav.css">
+    <script src="../../assests/include/jquery-3.1.1.min.js"></script>
+    <script src="../../assests/include/bootstrap-3.3.7.min.js"></script>
     <script>
         $(function () {
             $('.navbar-toggle').click(function () {
