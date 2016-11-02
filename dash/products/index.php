@@ -148,10 +148,10 @@
                         <div id="dropdown-lvl1" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
+                                    <li><a href="#">view</a></li>
                                     <li><a href="#">add</a></li>
                                     <li><a href="#">edit</a></li>
                                     <li><a href="#">delete</a></li>
-                                    <li><a href="#">view</a></li>
                                 </ul>
                             </div>
                         </div>
