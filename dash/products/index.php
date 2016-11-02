@@ -166,10 +166,10 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <h3>Manage items</h3>
+            <h4>Ayy lmao</h4>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Items</div>
+                <div class="panel-heading">Manage products</div>
 
                 <div class="container-fluid input-group-btn">
                     <div class="btn-group">
