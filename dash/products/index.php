@@ -5,18 +5,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>S O S A | Clothing</title>
+    <title>S O S A | Dashboard</title>
 
     <link rel="stylesheet" href="../../assests/include/bootstrap-3.3.7.min.css">
     <link rel="stylesheet" href="../../assests/include/sidebar-nav.css">
     <script src="../../assests/include/jquery-3.1.1.min.js"></script>
     <script src="../../assests/include/bootstrap-3.3.7.min.js"></script>
+
     <script>
         $(function () {
             $('.navbar-toggle').click(function () {
                 $('.navbar-nav').toggleClass('slide-in');
                 $('.side-body').toggleClass('body-slide-in');
-                $('#search').removeClass('in').addClass('collapse').slideUp(200);
+                //$('#search').removeClass('in').addClass('collapse').slideUp(200);
             });
 
             // Remove menu for searching
@@ -28,7 +29,6 @@
     </script>
 
     <style>
-
         .profile-header-container{
             margin: 0 auto;
             text-align: center;
@@ -39,8 +39,6 @@
         }
 
         .profile-header-img > img.img-circle {
-            width: 120px;
-            height: 120px;
             border: 2px solid #51D2B7;
         }
 
@@ -54,11 +52,12 @@
             padding: 5px 10px 5px 10px;
             border-radius: 27px;
         }
-        .navbar-brand {
-            float: none;
-            text-align: center;
-            padding: 0;
-        }
+
+        /*.navbar-brand {*/
+            /*float: none;*/
+            /*text-align: center;*/
+            /*padding: 0;*/
+        /*}*/
 
 
 
@@ -77,6 +76,10 @@
             float: right;
             margin-bottom: 10px;
         }
+
+        .btn {
+            border-radius: 2px;
+        }
     </style>
 </head>
 
@@ -89,8 +92,6 @@
         <nav class="navbar navbar-default" role="navigation">
 
             <div class="navbar-header">
-
-
                 <div class="brand-wrapper">
                     <!-- Hamburger -->
                     <button type="button" class="navbar-toggle">
@@ -100,7 +101,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <div class="profile-header-container">
+                    <div class="profile-header-container hidden-xs">
                         <div class="profile-header-img">
                             <img class="img-circle" src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-1-128.png" />
                             <!-- badge -->
@@ -113,7 +114,7 @@
                     <!-- Brand -->
                     <div class="brand-name-wrapper">
                         <a class="navbar-brand" href="#">
-                            S O S A | CMS
+                            S O S A | Inventory
                         </a>
                     </div>
 
@@ -171,31 +172,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Manage products</div>
 
-                <div class="container-fluid input-group-btn">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default">Attribute</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+                <div class="container-fluid">
+                    <label for="optionFilters">Refine search by</label>
+                    <select id="optionFilters" class="form-control">
+                        <option>Id</option>
+                        <option>Name</option>
+                        <option>Price</option>
+                        <option>Type</option>
+                        <option>Stock</option>
+                    </select>
 
-
-
-                        <label><input style="border-radius: 0px" ="text" class="form-control" aria-label="..."></label>
-
-                        <button id="btn-new-product" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-
-
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" placeholder="Search">
                     </div>
+
+                    <button id="btn-new-product" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
                 </div>
 
                 <div class="container-fluid">
@@ -204,6 +197,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Type</th>
                             <th>Price</th>
                             <th>Stock</th>
                             <th>Action</th>
@@ -214,6 +208,7 @@
                         <tr>
                             <td>1</td>
                             <td>Tic Tac Tie</td>
+                            <td>Clothing</td>
                             <td>£15.87</td>
                             <td><span class="label label-success">50</span></td>
                             <td>
@@ -225,6 +220,7 @@
                         <tr>
                             <td>4</td>
                             <td>Jordan Horizons</td>
+                            <td>Clothing</td>
                             <td>£95.99</td>
                             <td><span class="label label-warning">20</span></td>
                             <td>
@@ -236,6 +232,7 @@
                         <tr>
                             <td>15</td>
                             <td>Nike Addidas Flux</td>
+                            <td>Accessories</td>
                             <td>£56.99</td>
                             <td><span class="label label-danger">2</span></td>
                             <td>
