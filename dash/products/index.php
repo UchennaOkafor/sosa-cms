@@ -1,3 +1,27 @@
+<?php
+$attribute = "";
+$query = "";
+
+if (isset($_GET["attr"]) && isset($_GET["q"])) {
+    $attribute = $_GET["attr"];
+    $query = $_GET["q"];
+}
+
+function getLabelClassValue($quantityAmount) {
+    $classValue = "label ";
+
+    if ($quantityAmount >= 30) {
+        $classValue .= "label-success";
+    } else if ($quantityAmount >= 20) {
+        $classValue .= "label-warning";
+    } else if ($quantityAmount <= 10) {
+        $classValue .= "label-danger";
+    }
+
+    return $classValue;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,9 +78,9 @@
         }
 
         /*.navbar-brand {*/
-            /*float: none;*/
-            /*text-align: center;*/
-            /*padding: 0;*/
+        /*float: none;*/
+        /*text-align: center;*/
+        /*padding: 0;*/
         /*}*/
 
 
@@ -205,41 +229,31 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Tic Tac Tie</td>
-                            <td>Clothing</td>
-                            <td>£15.87</td>
-                            <td><span class="label label-success">50</span></td>
-                            <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td>4</td>
-                            <td>Jordan Horizons</td>
-                            <td>Clothing</td>
-                            <td>£95.99</td>
-                            <td><span class="label label-warning">20</span></td>
-                            <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                        <?php
 
-                        <tr>
-                            <td>15</td>
-                            <td>Nike Addidas Flux</td>
-                            <td>Accessories</td>
-                            <td>£56.99</td>
-                            <td><span class="label label-danger">2</span></td>
-                            <td>
-                                <button class="btn btn-warning">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                        if (! empty($attribute) && ! empty($query)) {
+
+                            include "../../api/db/Database.php";
+                            include "../../api/factory/ProductFactory.php";
+
+                            $products = (new ProductFactory())->getAllProducts();
+
+                            foreach ($products as $product) {
+                                ?>
+                                <tr>
+                                    <td> <?php echo $product["id"]  ?> </td>
+                                    <td> <?php echo $product["name"]  ?> </td>
+                                    <td> <?php echo $product["type"]  ?> </td>
+                                    <td> <?php echo $product["price"] ?> </td>
+                                    <td> <span class="<?php echo getLabelClassValue(intval($product["stock_amount"])) ?>"><?php echo $product["stock_amount"] ?></span> </td>
+                                    <td>
+                                        <button class="btn btn-warning">Edit</button>
+                                        <button class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            <?php } } ?>
+
                         </tbody>
                     </table>
 

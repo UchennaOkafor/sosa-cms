@@ -8,9 +8,9 @@ use PDO;
 class Database {
 
     const DB_HOST = "localhost";
-    const DB_NAME = "";
-    const DB_USER = "";
-    const DB_PASS = "";
+    const DB_NAME = "sosa";
+    const DB_USER = "root";
+    const DB_PASS = "password55";
 
     private static $instance;
     private static $con;
