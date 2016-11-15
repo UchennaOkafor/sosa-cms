@@ -310,8 +310,6 @@ function getLabelClassValue($quantityAmount) {
                 </div>
             </div>
 
-
-
         </div>
     </div>
 
