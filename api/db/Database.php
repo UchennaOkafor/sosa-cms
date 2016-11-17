@@ -2,8 +2,8 @@
 
 namespace Cms\Database\Config;
 
-use Exception;
 use PDO;
+use PDOException;
 
 class Database {
 
@@ -12,25 +12,29 @@ class Database {
     const DB_USER = "root";
     const DB_PASS = "password55";
 
-    private static $instance;
-    private static $con;
+    private static $dbInstance;
+    private static $pdoInstance;
+
+    public static $hasConnection = true;
+    public static $dbErrorMsg = null;
 
     public static function getInstance() {
-        if (is_null(self::$instance)) {
-            self::$instance = new Database();
+        if (is_null(self::$dbInstance)) {
+            self::$dbInstance = new Database();
         }
 
-        return self::$con;
+        return self::$pdoInstance;
     }
 
     public function __construct() {
         $connectionString = "mysql:dbname=" . self::DB_HOST . ";dbname=" . self::DB_NAME;
 
         try {
-            self::$con = new PDO($connectionString, self::DB_USER, self::DB_PASS);
-            self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (Exception $e) {
-            die($e->getMessage());
+            self::$pdoInstance = new PDO($connectionString, self::DB_USER, self::DB_PASS);
+            self::$pdoInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            self::$hasConnection = false;
+            self::$dbErrorMsg = $e->getMessage();
         }
     }
 }

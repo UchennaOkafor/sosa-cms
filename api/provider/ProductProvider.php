@@ -70,8 +70,7 @@ class ProductProvider {
      * @return bool
      */
     private function isValidProductAttribute($attribute) {
-        $acceptedValues = ["id", "name", "type", "price", "stock"];
-        return in_array($attribute, $acceptedValues);
+        return in_array($attribute, ["id", "name", "type", "price", "stock"]);
     }
 
     /**

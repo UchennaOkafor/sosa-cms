@@ -1,10 +1,22 @@
 <?php
+session_start();
 
 use Cms\Database\Config\Database;
 
-include "../../api/db/Database.php";
+require "../../api/db/Database.php";
 
-$db = Database::getInstance();
-$db->errorInfo();
+//Initializes the pdo instance, if an error occurs it will throw an error message.
+Database::getInstance();
 
-//Use this to perform checks to see if server can connect to database. if it cannot show an error page and die.
+if (! Database::$hasConnection) {
+    $_SESSION["DB_ERROR_MSG"] = Database::$dbErrorMsg;
+    require ("error.php");
+}
+
+function generateCsrfToken() {
+    if (function_exists('mcrypt_create_iv')) {
+        return bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+    } else {
+        return bin2hex(openssl_random_pseudo_bytes(32));
+    }
+}

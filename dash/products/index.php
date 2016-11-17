@@ -2,8 +2,8 @@
 
 use \Cms\Provider\ProductProvider;
 
-include "../../api/db/Database.php";
-include "../../api/provider/ProductProvider.php";
+require "middleware.php";
+require "../../api/provider/ProductProvider.php";
 
 $attribute = "";
 $query = "";
@@ -245,5 +245,4 @@ function getLabelClassValue($quantityAmount) {
 </body>
 </html>
 
-<!--TODO make sure to remove all inline CSS -  search for style=" and implment the css-->
 <!--TODO fix head html tag-->
