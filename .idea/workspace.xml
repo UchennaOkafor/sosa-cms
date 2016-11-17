@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="10e9e655-563d-4c92-b759-ed83e14dcb36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/delete/index.php" afterPath="$PROJECT_DIR$/backend/api/delete/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dash/products/index.php" afterPath="$PROJECT_DIR$/dash/products/index.php" />
     </list>
     <ignored path="sosa-cms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +23,21 @@
     <favorites_list name="sosa-cms" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dash/products/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="245" column="7" selection-start-line="245" selection-start-column="7" selection-end-line="245" selection-end-column="7" />
+              <folding>
+                <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+                <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,10 +65,10 @@
         <option value="$PROJECT_DIR$/api/db/Database.php" />
         <option value="$PROJECT_DIR$/dash/products/error.php" />
         <option value="$PROJECT_DIR$/backend/db/Database.php" />
-        <option value="$PROJECT_DIR$/dash/products/index.php" />
         <option value="$PROJECT_DIR$/dash/products/middleware.php" />
         <option value="$PROJECT_DIR$/assests/js/main.js" />
         <option value="$PROJECT_DIR$/backend/api/delete/index.php" />
+        <option value="$PROJECT_DIR$/dash/products/index.php" />
       </list>
     </option>
   </component>
@@ -106,6 +120,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="sosa-cms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sosa-cms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sosa-cms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dash" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -214,7 +246,7 @@
       <workItem from="1479083833451" duration="891000" />
       <workItem from="1479251723994" duration="610000" />
       <workItem from="1479383966853" duration="16042000" />
-      <workItem from="1479422238045" duration="837000" />
+      <workItem from="1479422238045" duration="937000" />
     </task>
     <task id="LOCAL-00001" summary="vcs commit">
       <created>1478043622279</created>
@@ -328,17 +360,24 @@
       <option name="project" value="LOCAL" />
       <updated>1479402075113</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="*Implemented delete function for the api">
+      <created>1479423087742</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1479423087742</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53873000" />
+    <option name="totallyTimeSpent" value="53973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2078125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2078125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31394073" sideWeight="0.50625" order="10" side_tool="true" content_ui="tabs" />
@@ -400,7 +439,8 @@
     <MESSAGE value="*Implemented session/cookies functionality&#10;*Started implementing the use of CSRF tokens for validating requests&#10;*Implemented a middleware script&#10;*Implemented an error page" />
     <MESSAGE value="*Minor project structure change" />
     <MESSAGE value="*Implementing delete api function&#10;*Implementing CSRF guard" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Implementing delete api function&#10;*Implementing CSRF guard" />
+    <MESSAGE value="*Implemented delete function for the api" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Implemented delete function for the api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -413,6 +453,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -428,6 +472,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,6 +483,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -442,6 +494,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -449,6 +505,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -477,6 +537,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -505,6 +569,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -512,6 +580,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -519,6 +591,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -533,6 +609,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -555,6 +635,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2898">
           <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -592,6 +676,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -679,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/products/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/delete/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -702,6 +783,17 @@
             <marker date="1479393273896" expanded="true" signature="456:478" ph="SELECT * FRO... products" />
             <marker date="1479393273896" expanded="true" signature="1154:1204" ph="SELECT * FRO... $" />
             <marker date="1479393273896" expanded="true" signature="1947:1980" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dash/products/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="245" column="7" selection-start-line="245" selection-start-column="7" selection-end-line="245" selection-end-column="7" />
+          <folding>
+            <marker date="1479423174730" expanded="true" signature="693:712" ph="..." />
+            <marker date="1479423174730" expanded="true" signature="1266:1364" ph="..." />
           </folding>
         </state>
       </provider>
