@@ -1,0 +1,46 @@
+.profile-header-container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-header-img {
+    padding: 40px;
+}
+
+.profile-header-img > img.img-circle {
+    border: 2px solid #51D2B7;
+}
+
+.rank-label-container {
+    margin-top: -15px;
+    text-align: center;
+}
+
+.label.label-default.rank-label {
+    background-color: rgb(81, 210, 183);
+    padding: 5px 10px 5px 10px;
+    border-radius: 27px;
+}
+
+/*.navbar-brand {*/
+/*float: none;*/
+/*text-align: center;*/
+/*padding: 0;*/
+/*}*/
+
+.panel-body {
+    padding: 4px;
+}
+
+.panel, .panel-heading {
+    border-radius: 0;
+}
+
+#btn-new-product {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.btn {
+    border-radius: 2px;
+}

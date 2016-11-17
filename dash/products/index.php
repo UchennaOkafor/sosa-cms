@@ -1,7 +1,9 @@
 <?php
 
+use \Cms\Provider\ProductProvider;
+
 include "../../api/db/Database.php";
-include "../../api/factory/ProductFactory.php";
+include "../../api/provider/ProductProvider.php";
 
 $attribute = "";
 $query = "";
@@ -38,78 +40,11 @@ function getLabelClassValue($quantityAmount) {
 
     <link rel="stylesheet" href="../../assests/include/bootstrap-3.3.7.min.css">
     <link rel="stylesheet" href="../../assests/include/sidebar-nav.css">
+    <link rel="stylesheet" href="../../assests/css/laf.css">
+
     <script src="../../assests/include/jquery-3.1.1.min.js"></script>
     <script src="../../assests/include/bootstrap-3.3.7.min.js"></script>
-
-    <script>
-        $(function () {
-            $('.navbar-toggle').click(function () {
-                $('.navbar-nav').toggleClass('slide-in');
-                $('.side-body').toggleClass('body-slide-in');
-                //$('#search').removeClass('in').addClass('collapse').slideUp(200);
-            });
-
-            // Remove menu for searching
-            $('#search-trigger').click(function () {
-                $('.navbar-nav').removeClass('slide-in');
-                $('.side-body').removeClass('body-slide-in');
-            });
-        });
-    </script>
-
-    <style>
-        .profile-header-container{
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .profile-header-img {
-            padding: 40px;
-        }
-
-        .profile-header-img > img.img-circle {
-            border: 2px solid #51D2B7;
-        }
-
-        .rank-label-container {
-            margin-top: -15px;
-            text-align: center;
-        }
-
-        .label.label-default.rank-label {
-            background-color: rgb(81, 210, 183);
-            padding: 5px 10px 5px 10px;
-            border-radius: 27px;
-        }
-
-        /*.navbar-brand {*/
-        /*float: none;*/
-        /*text-align: center;*/
-        /*padding: 0;*/
-        /*}*/
-
-
-
-
-
-
-        .panel-body {
-            padding: 4px;
-        }
-
-        .panel, .panel-heading {
-            border-radius: 0;
-        }
-
-        #btn-new-product {
-            float: right;
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            border-radius: 2px;
-        }
-    </style>
+    <script src="../../assests/js/main.js"></script>
 </head>
 
 <body>
@@ -211,11 +146,11 @@ function getLabelClassValue($quantityAmount) {
                         <div class="form-group">
                             <label for="optionFilters">Refine search by</label>
                             <select id="optionFilters" name="attr" class="form-control">
-                                <option>Id</option>
-                                <option>Name</option>
-                                <option>Price</option>
-                                <option>Type</option>
-                                <option>Stock</option>
+                                <option>id</option>
+                                <option>name</option>
+                                <option>price</option>
+                                <option>type</option>
+                                <option>stock</option>
                             </select>
 
                             <input name="q" type="text" class="form-control" placeholder="Search">
@@ -246,12 +181,12 @@ function getLabelClassValue($quantityAmount) {
 
                         <?php
                         $products = [];
+                        $productFactory = new ProductProvider();
 
-                        if (empty($attribute) && empty($query)) {
-                            $products = (new ProductFactory())->getAllProducts();
+                        if (empty($attribute) || empty($query)) {
+                            $products = $productFactory->getAllProducts();
                         } else if (! empty($attribute) && ! empty($query)) {
-                            //TODO make it fetch based on the attribute and query value
-                            $products = (new ProductFactory())->getAllProducts();
+                            $products = $productFactory->getProductsByAttribute($attribute, $query);
                         }
 
                         foreach ($products as $product) {
@@ -261,11 +196,11 @@ function getLabelClassValue($quantityAmount) {
                                 <td> <?php echo $product["name"] ?> </td>
                                 <td> <?php echo $product["type"] ?> </td>
                                 <td> <?php echo "£" . $product["price"] ?> </td>
-                                <td> <span class="<?php echo getLabelClassValue($product["stock_amount"]) ?>"><?php echo $product["stock_amount"] ?></span> </td>
+                                <td> <span class="<?php echo getLabelClassValue($product["stock"]) ?>"><?php echo $product["stock"] ?></span> </td>
                                 <td> <?php echo $product["created_at"] ?> </td>
                                 <td>
-                                    <a class="btn btn-warning" href="http://www.stackoverflow.com/">Edit</a>
-                                    <a class="btn btn-danger" href="http://www.stackoverflow.com/">Delete</a>
+                                    <a class="btn btn-warning btn-edit" data-product-id="<?php echo $product["id"] ?>">Edit</a>
+                                    <a class="btn btn-danger btn-delete" data-product-id="<?php echo $product["id"] ?>">Delete</a>
                                 </td>
                             </tr>
                             <?php
@@ -283,28 +218,22 @@ function getLabelClassValue($quantityAmount) {
                 </div>
             </div>
 
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                Launch demo modal
-            </button>
-
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title" id="myModalLabel">Confirm delete</h4>
+                            <h4 class="modal-title">Confirm delete</h4>
                         </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete this item?
+                        <div id="deleteModalBody" class="modal-body">
+
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-danger">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         </div>
                     </div>
                 </div>
@@ -317,5 +246,4 @@ function getLabelClassValue($quantityAmount) {
 </html>
 
 <!--TODO make sure to remove all inline CSS -  search for style=" and implment the css-->
-<!--TODO make sure to make the CSS non embedded-->
 <!--TODO fix head html tag-->
