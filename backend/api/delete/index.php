@@ -12,7 +12,7 @@ $success = false;
 $message = "";
 
 if (! isset($_POST["product_id"]) || ! isset($_POST["csrf_token"])) {
-    $message = "Expected parameters missing";
+    $message = "Missing expected parameters";
 } else {
 
     $productId = $_POST["product_id"];
