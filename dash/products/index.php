@@ -247,3 +247,4 @@ function getLabelClassValue($quantityAmount) {
 
 <!--TODO fix head html tag-->
 <!--TODO make sure to implement such that the when searching for an item, if no item is found it'll display that-->
+<!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
