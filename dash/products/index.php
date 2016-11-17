@@ -49,6 +49,8 @@ function getLabelClassValue($quantityAmount) {
 
 <body>
 
+<input id="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
+
 <div class="row">
     <!-- Menu -->
     <div class="side-menu">
@@ -181,12 +183,12 @@ function getLabelClassValue($quantityAmount) {
 
                         <?php
                         $products = [];
-                        $productFactory = new ProductProvider();
+                        $productProvider = new ProductProvider();
 
                         if (empty($attribute) || empty($query)) {
-                            $products = $productFactory->getAllProducts();
+                            $products = $productProvider->getAllProducts();
                         } else if (! empty($attribute) && ! empty($query)) {
-                            $products = $productFactory->getProductsByAttribute($attribute, $query);
+                            $products = $productProvider->getProductsByAttribute($attribute, $query);
                         }
 
                         foreach ($products as $product) {
@@ -228,9 +230,7 @@ function getLabelClassValue($quantityAmount) {
                             </button>
                             <h4 class="modal-title">Confirm delete</h4>
                         </div>
-                        <div id="deleteModalBody" class="modal-body">
-
-                        </div>
+                        <div id="deleteModalBody" class="modal-body"> </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger">Yes</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

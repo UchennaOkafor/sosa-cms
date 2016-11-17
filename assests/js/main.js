@@ -12,7 +12,7 @@ $(function () {
     });
 
     $('.btn-delete').on('click', function () {
-        $('#deleteModalBody').html('Are you sure you want to delete to delete ' + $(this).attr('data-product-id'));
+        $('#deleteModalBody').html('Are you sure you want to delete ' + $(this).attr('data-product-id') + '?');
         $('#deleteModal').modal('show');
     });
 });
