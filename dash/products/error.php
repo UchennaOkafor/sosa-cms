@@ -28,7 +28,7 @@
         <div class="panel-body">
             <?php
             if (isset($_SESSION["DB_ERROR_MSG"])) {
-                echo "There was an error trying to connect to database.<br>";
+                echo "There was an error trying to connect to the database.<br>";
                 echo "<b>Error: " . $_SESSION["DB_ERROR_MSG"] . "</b>";
             } else {
                 echo "An error has occurred in your site that has prevented it from continuing.";

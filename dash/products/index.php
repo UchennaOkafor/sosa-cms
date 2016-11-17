@@ -3,7 +3,7 @@
 use \Cms\Provider\ProductProvider;
 
 require "middleware.php";
-require "../../api/provider/ProductProvider.php";
+require "../../backend/provider/ProductProvider.php";
 
 $attribute = "";
 $query = "";
