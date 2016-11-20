@@ -13,12 +13,12 @@ $csrfToken = "";
 $success = false;
 $message = "";
 
-if (! isset($_POST["product_id"]) || ! isset($_POST["csrf_token"])) {
+if (! isset($_GET["product_id"]) || ! isset($_GET["csrf_token"])) {
     $message = "Missing expected parameters";
 } else {
 
-    $productId = $_POST["product_id"];
-    $csrfToken = $_POST["csrf_token"];
+    $productId = $_GET["product_id"];
+    $csrfToken = $_GET["csrf_token"];
 
     if ($_SESSION["csrf_token"] == $csrfToken) {
         $productDeleted = (new ProductProvider())->deleteProduct($productId);
@@ -26,8 +26,9 @@ if (! isset($_POST["product_id"]) || ! isset($_POST["csrf_token"])) {
         $success = $productDeleted;
         $message = $productDeleted ? "Product has been successfully deleted" : "Product could not be deleted";
     } else {
-        $message = "Request was not recognized by server. (Forged request)";
+        $message = "Request was not recognized by server. Please reload the page and try again";
     }
 }
 
 echo json_encode(["success" => $success, "message" => $message]);
+//TODO make sure in deployment mode to change it to _POST. Because the phpStorm IDE is not allowing the use of post variables for some reason

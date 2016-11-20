@@ -21,19 +21,21 @@ $(function () {
 
     $("#btn-delete-item").on("click", function () {
         var postForm = {product_id: 0, csrf_token: $("#csrf_token").val() };
-        
-        // $.post("/sosa-cms/backend/api/delete/", postForm).done(function(data) {
-        //
-        // }).done(function(data) {
-        //
-        // });
+        $(".progress-bar-striped").addClass("active");
 
-        $.ajax({
-            method: "POST",
-            url: "/sosa-cms/backend/api/delete/",
-            data: postForm,
-            dataType: "text",
-            contentType: "application/x-www-form-urlencoded"
+        $.get("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
+            $("#deleteModal").modal("hide");
+
+            var msg = JSON.parse(jsonMsg);
+            if (msg.success) {
+                $("#sucessAlert").html("<strong>Success!</strong> Indicates a successful or positive action. Ayyyy");
+                $("#sucessAlert").show().fadeOut(500).hide();
+
+            } else {
+
+            }
+        }).done(function(data) {
+
         });
 
     });
