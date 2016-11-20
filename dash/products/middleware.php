@@ -14,7 +14,7 @@ if (! Database::$hasConnection) {
     require ("error.php");
 }
 
-if (! isset($_SESSION["csrf_token"])) {
+if (! isset($_SESSION["csrf_token"]) || $_SESSION["csrf_token"] == "") {
     $_SESSION["csrf_token"] = generateCsrfToken();
 }
 

@@ -250,7 +250,7 @@ function sanitizeHtml($string) {
                         </div>
                         <div id="deleteModalBody" class="modal-body"> </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger">Yes</button>
+                            <button id="btn-delete-item" type="button" class="btn btn-danger">Yes</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         </div>
                     </div>

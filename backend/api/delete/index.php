@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require "../../../backend/db/Database.php";
 require "../../../backend/provider/ProductProvider.php";
 
