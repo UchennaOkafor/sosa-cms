@@ -28,15 +28,13 @@ $(function () {
 
             var msg = JSON.parse(jsonMsg);
             if (msg.success) {
-                $("#sucessAlert").html("<strong>Success!</strong> Indicates a successful or positive action. Ayyyy");
-                $("#sucessAlert").show().fadeOut(500).hide();
-
+                $("#deleteAlert").attr("class",  "alert alert-success alert-dismissable");
             } else {
-
+                $("#deleteAlert").attr("class",  "alert alert-danger alert-dismissable");
             }
-        }).done(function(data) {
 
+            $("#modalText").html("<strong>" + msg.message + "</strong>");
+            $("#deleteAlert").show();
         });
-
     });
 });

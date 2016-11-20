@@ -22,6 +22,15 @@ class ProductProvider {
         $this->pdoInstance = Database::getInstance();
     }
 
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function isProductExists($id) {
+        $stmt = $this->pdoInstance->prepare("SELECT id FROM products WHERE id = ? LIMIT 1");
+        return $stmt->execute([$id]) && $stmt->rowCount() == 1;
+    }
+
     /*
      *
      */

@@ -5,8 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assests/js/main.js" afterPath="$PROJECT_DIR$/assests/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/delete/index.php" afterPath="$PROJECT_DIR$/backend/api/delete/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/provider/ProductProvider.php" afterPath="$PROJECT_DIR$/backend/provider/ProductProvider.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dash/products/index.php" afterPath="$PROJECT_DIR$/dash/products/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dash/products/middleware.php" afterPath="$PROJECT_DIR$/dash/products/middleware.php" />
     </list>
     <ignored path="sosa-cms.iws" />
     <ignored path=".idea/" />
@@ -27,30 +27,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assests/js/main.js">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dash/products/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="463">
+              <caret line="284" column="166" selection-start-line="284" selection-start-column="166" selection-end-line="284" selection-end-column="166" />
+              <folding>
+                <marker date="1479678772795" expanded="true" signature="7321:9106" ph="..." />
+                <marker date="1479678772795" expanded="true" signature="9436:9497" ph="..." />
+                <marker date="1479678772795" expanded="true" signature="9436:9516" ph="..." />
+                <marker date="1479678772795" expanded="true" signature="9436:9519" ph="..." />
+                <marker date="1479678772795" expanded="true" signature="9436:9643" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dash/products/index.php">
+      <file leaf-file-name="ProductProvider.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/provider/ProductProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#11735#11742#0#HTML" expanded="true" />
-                <marker date="1479676567492" expanded="true" signature="7321:9106" ph="..." />
-                <marker date="1479676567492" expanded="true" signature="9436:9497" ph="..." />
-                <marker date="1479676567492" expanded="true" signature="9436:9516" ph="..." />
-                <marker date="1479676567492" expanded="true" signature="9436:9519" ph="..." />
-                <marker date="1479676567492" expanded="true" signature="9436:9643" ph="..." />
+                <marker date="1479678135249" expanded="true" signature="492:515" ph="SELECT * FRO... products" />
+                <marker date="1479678135249" expanded="true" signature="492:528" ph="SELECT * FRO... products" />
+                <marker date="1479678135249" expanded="true" signature="492:536" ph="SELECT id FR... products" />
+                <marker date="1479678135249" expanded="true" signature="717:739" ph="SELECT * FRO... products" />
+                <marker date="1479678135249" expanded="true" signature="1415:1465" ph="SELECT * FRO... products" />
+                <marker date="1479678135249" expanded="true" signature="2208:2241" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -88,9 +92,10 @@
         <option value="$PROJECT_DIR$/dash/products/view.php" />
         <option value="$PROJECT_DIR$/dash/products/error.php" />
         <option value="$PROJECT_DIR$/dash/products/middleware.php" />
+        <option value="$PROJECT_DIR$/backend/api/delete/index.php" />
+        <option value="$PROJECT_DIR$/backend/provider/ProductProvider.php" />
         <option value="$PROJECT_DIR$/assests/js/main.js" />
         <option value="$PROJECT_DIR$/dash/products/index.php" />
-        <option value="$PROJECT_DIR$/backend/api/delete/index.php" />
       </list>
     </option>
   </component>
@@ -243,6 +248,28 @@
               <option name="myItemId" value="sosa-cms" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sosa-cms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sosa-cms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assests" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -349,7 +376,7 @@
       <workItem from="1479426231753" duration="70000" />
       <workItem from="1479526138500" duration="1335000" />
       <workItem from="1479655905523" duration="9533000" />
-      <workItem from="1479673115365" duration="3698000" />
+      <workItem from="1479673115365" duration="5654000" />
     </task>
     <task id="LOCAL-00001" summary="vcs commit">
       <created>1478043622279</created>
@@ -547,11 +574,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479673010342</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="*Minor changes&#10;*Added the use of progress bar when submitting ajax request">
+      <created>1479676842269</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1479676842269</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69713000" />
+    <option name="totallyTimeSpent" value="71669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -624,7 +658,8 @@
     <MESSAGE value="*Minor changed" />
     <MESSAGE value="* Implemented XSS input filtering&#10;* Improved search query functionality&#10;* Added error message when item cannot be found" />
     <MESSAGE value="*Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Minor changes" />
+    <MESSAGE value="*Minor changes&#10;*Added the use of progress bar when submitting ajax request" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Minor changes&#10;*Added the use of progress bar when submitting ajax request" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -884,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dash/products/middleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/db/Database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -900,47 +927,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/provider/ProductProvider.php">
+    <entry file="file://$PROJECT_DIR$/dash/products/middleware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-          <folding>
-            <marker date="1479393273896" expanded="true" signature="456:478" ph="SELECT * FRO... products" />
-            <marker date="1479393273896" expanded="true" signature="1154:1204" ph="SELECT * FRO... products" />
-            <marker date="1479393273896" expanded="true" signature="1947:1980" ph="DELETE FROM " />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/delete/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="491">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/provider/ProductProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding>
+            <marker date="1479678135249" expanded="true" signature="492:515" ph="SELECT * FRO... products" />
+            <marker date="1479678135249" expanded="true" signature="492:528" ph="SELECT * FRO... products" />
+            <marker date="1479678135249" expanded="true" signature="492:536" ph="SELECT id FR... products" />
+            <marker date="1479678135249" expanded="true" signature="717:739" ph="SELECT * FRO... products" />
+            <marker date="1479678135249" expanded="true" signature="1415:1465" ph="SELECT * FRO... products" />
+            <marker date="1479678135249" expanded="true" signature="2208:2241" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assests/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="455">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dash/products/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="463">
+          <caret line="284" column="166" selection-start-line="284" selection-start-column="166" selection-end-line="284" selection-end-column="166" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#11735#11742#0#HTML" expanded="true" />
-            <marker date="1479676567492" expanded="true" signature="7321:9106" ph="..." />
-            <marker date="1479676567492" expanded="true" signature="9436:9497" ph="..." />
-            <marker date="1479676567492" expanded="true" signature="9436:9516" ph="..." />
-            <marker date="1479676567492" expanded="true" signature="9436:9519" ph="..." />
-            <marker date="1479676567492" expanded="true" signature="9436:9643" ph="..." />
+            <marker date="1479678772795" expanded="true" signature="7321:9106" ph="..." />
+            <marker date="1479678772795" expanded="true" signature="9436:9497" ph="..." />
+            <marker date="1479678772795" expanded="true" signature="9436:9516" ph="..." />
+            <marker date="1479678772795" expanded="true" signature="9436:9519" ph="..." />
+            <marker date="1479678772795" expanded="true" signature="9436:9643" ph="..." />
           </folding>
         </state>
       </provider>

@@ -21,10 +21,16 @@ if (! isset($_GET["product_id"]) || ! isset($_GET["csrf_token"])) {
     $csrfToken = $_GET["csrf_token"];
 
     if ($_SESSION["csrf_token"] == $csrfToken) {
-        $productDeleted = (new ProductProvider())->deleteProduct($productId);
+        $productProvider = new ProductProvider();
 
-        $success = $productDeleted;
-        $message = $productDeleted ? "Product has been successfully deleted" : "Product could not be deleted";
+        if (! $productProvider->isProductExists($productId)) {
+            $message = "Product you tried to delete does not exist, sorry.";
+        } else {
+            $productDeleted = $productProvider->deleteProduct($productId);
+            $success = $productDeleted;
+            $message = $productDeleted ? "Product has been successfully deleted" : "Product could not be deleted";
+        }
+
     } else {
         $message = "Request was not recognized by server. Please reload the page and try again";
     }

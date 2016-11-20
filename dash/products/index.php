@@ -256,7 +256,7 @@ function sanitizeHtml($string) {
                             <br>
                             <br>
 
-                            <div class="progress">
+                            <div class="progress hidden">
                                 <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                     <span>Loading...</span>
                                 </div>
@@ -267,9 +267,9 @@ function sanitizeHtml($string) {
                 </div>
             </div>
 
-            <div id="sucessAlert" class="alert alert-success alert-dismissable" style="display: none" role="alert">
+            <div id="deleteAlert" class="alert alert-dismissable hidden" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> Indicates a successful or positive action.
+                <strong id="modalText">Success!</strong> Indicates a successful or positive action.
             </div>
 
         </div>
@@ -282,4 +282,4 @@ function sanitizeHtml($string) {
 
 <!--TODO fix head html tag-->
 <!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
-<!--TODO ensure that
+<!--TODO Work on the naming conventions for all id elements. Make sure they use the dash convention and not pascal casing, so btn-new-product instead of btnNewProduct-->
