@@ -267,11 +267,7 @@ function sanitizeHtml($string) {
                 </div>
             </div>
 
-            <div id="deleteAlert" class="alert alert-dismissable hidden" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong id="modalText">Success!</strong> Indicates a successful or positive action.
-            </div>
-
+            <div id="deleteAlert" class="alert alert-dismissable hidden" role="alert"></div>
         </div>
     </div>
 

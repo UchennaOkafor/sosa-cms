@@ -22,19 +22,16 @@ $(function () {
     $("#btn-delete-item").on("click", function () {
         var postForm = {product_id: 0, csrf_token: $("#csrf_token").val() };
         $(".progress-bar-striped").addClass("active");
+        $(".progress-bar-striped").removeClass("hidden");
 
         $.get("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
             $("#deleteModal").modal("hide");
 
             var msg = JSON.parse(jsonMsg);
-            if (msg.success) {
-                $("#deleteAlert").attr("class",  "alert alert-success alert-dismissable");
-            } else {
-                $("#deleteAlert").attr("class",  "alert alert-danger alert-dismissable");
-            }
+            var classValue = msg.success ? "alert alert-success" : "alert alert-danger";
+            $("#deleteAlert").attr("class", classValue).html("<strong>" + msg.message + "</strong>").show().delay(5000).fadeOut(400);
 
-            $("#modalText").html("<strong>" + msg.message + "</strong>");
-            $("#deleteAlert").show();
+            $(".progress-bar-striped").addClass("hidden");
         });
     });
 });
