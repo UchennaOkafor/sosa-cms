@@ -23,6 +23,7 @@ class ProductProvider {
     }
 
     /**
+     * Checks if a product exists in the database
      * @param $id
      * @return bool
      */
