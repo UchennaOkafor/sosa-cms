@@ -8,9 +8,9 @@ require "../../backend/provider/ProductProvider.php";
 $attribute = "";
 $query = "";
 
-if (isset($_GET["attr"]) && isset($_GET["q"])) {
+if (isset($_GET["attr"]) && isset($_GET["query"])) {
     $attribute = $_GET["attr"];
-    $query = $_GET["q"];
+    $query = $_GET["query"];
 }
 
 function getLabelClassValue($quantityAmount) {
@@ -27,6 +27,11 @@ function getLabelClassValue($quantityAmount) {
 
     return $classValue;
 }
+
+function sanitizeHtml($string) {
+    return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -88,17 +93,15 @@ function getLabelClassValue($quantityAmount) {
                     <div id="search" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <form class="navbar-form" role="search">
+                                <input name="attr" type="hidden" value="name">
                                 <div class="form-group">
-                                    <input name="q" type="text" class="form-control" placeholder="Search">
+                                    <input name="query" type="text" class="form-control" placeholder="Search">
                                 </div>
-
-                                <input name="attr" type="hidden" value="Name">
                                 <button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-search"></span></button>
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- Main Menu -->
@@ -136,26 +139,26 @@ function getLabelClassValue($quantityAmount) {
     <div class="container-fluid">
 
         <div class="side-body">
-            <h4>Ayy lmao</h4>
+            <div class="page-header">
+                <h3>Inventory console</h3>
+            </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Manage products</div>
-
                 <div class="container-fluid">
-
                     <br>
-                    <form action="http://localhost:63342/sosa-cms/dash/products/" class="form-inline">
+                    <form action="/sosa-cms/dash/products/" class="form-inline">
                         <div class="form-group">
-                            <label for="optionFilters">Refine search by</label>
-                            <select id="optionFilters" name="attr" class="form-control">
-                                <option>id</option>
-                                <option>name</option>
-                                <option>price</option>
-                                <option>type</option>
-                                <option>stock</option>
+                            <label for="searchFilters">Refine search by</label>
+                            <select id="searchFilters" name="attr" class="form-control">
+                                <option <?php if ($attribute == "id") echo "selected"; ?>>id</option>
+                                <option <?php if ($attribute == "name") echo "selected"; ?>>name</option>
+                                <option <?php if ($attribute == "price") echo "selected"; ?>>price</option>
+                                <option <?php if ($attribute == "type") echo "selected"; ?>>type</option>
+                                <option <?php if ($attribute == "stock") echo "selected"; ?>>stock</option>
                             </select>
 
-                            <input name="q" type="text" class="form-control" placeholder="Search">
+                            <input name="query" type="text" class="form-control" placeholder="Search" value="<?php if ($query != "") echo sanitizeHtml($query); ?>">
 
                             <button id="btn-new-product" type="submit" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -191,26 +194,41 @@ function getLabelClassValue($quantityAmount) {
                             $products = $productProvider->getProductsByAttribute($attribute, $query);
                         }
 
-                        foreach ($products as $product) {
-                            ?>
-                            <tr>
-                                <td> <?php echo $product["id"] ?> </td>
-                                <td> <?php echo $product["name"] ?> </td>
-                                <td> <?php echo $product["type"] ?> </td>
-                                <td> <?php echo "£" . $product["price"] ?> </td>
-                                <td> <span class="<?php echo getLabelClassValue($product["stock"]) ?>"><?php echo $product["stock"] ?></span> </td>
-                                <td> <?php echo $product["created_at"] ?> </td>
-                                <td>
-                                    <a class="btn btn-warning btn-edit" data-product-id="<?php echo $product["id"] ?>">Edit</a>
-                                    <a class="btn btn-danger btn-delete" data-product-id="<?php echo $product["id"] ?>">Delete</a>
-                                </td>
-                            </tr>
-                            <?php
+                        if ($products != null) {
+                            foreach ($products as $product) {
+                                ?>
+                                <tr>
+                                    <td> <?php echo $product["id"] ?> </td>
+                                    <td> <?php echo sanitizeHtml($product["name"]); ?> </td>
+                                    <td> <?php echo $product["type"] ?> </td>
+                                    <td> <?php echo "£" . $product["price"] ?> </td>
+                                    <td> <span class="<?php echo getLabelClassValue($product["stock"]) ?>"><?php echo $product["stock"] ?></span> </td>
+                                    <td> <?php echo $product["created_at"] ?> </td>
+                                    <td>
+                                        <a class="btn btn-warning btn-edit" data-product-id="<?php echo $product["id"] ?>">Edit</a>
+                                        <a class="btn btn-danger btn-delete" data-product-id="<?php echo $product["id"] ?>" data-product-name="<?php echo sanitizeHtml($product["name"]) ?>">Delete</a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
                         }
                         ?>
 
                         </tbody>
                     </table>
+
+                    <?php
+
+                    if ($products == null) {
+                        $filteredInput = sanitizeHtml($query);
+                        $warningAlert =
+                            "<div class=\"alert alert-warning\">
+                                Sorry, but no item with the $attribute <strong>\"$filteredInput\"</strong> could be found in the database. Please refine your search query.
+                            </div>";
+
+                        echo $warningAlert;
+                    }
+                    ?>
 
                     <button id="btn-new-product" class="btn btn-primary">new product
                         <span class="glyphicon glyphicon-plus-sign"></span>
@@ -238,7 +256,6 @@ function getLabelClassValue($quantityAmount) {
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -246,5 +263,5 @@ function getLabelClassValue($quantityAmount) {
 </html>
 
 <!--TODO fix head html tag-->
-<!--TODO make sure to implement such that the when searching for an item, if no item is found it'll display that-->
 <!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
+<!--TODO ensure that

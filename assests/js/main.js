@@ -12,7 +12,12 @@ $(function () {
     });
 
     $('.btn-delete').on('click', function () {
-        $('#deleteModalBody').html('Are you sure you want to delete ' + $(this).attr('data-product-id') + '?');
+        var productId = $(this).attr('data-product-id');
+        var productName = $(this).attr('data-product-name');
+
+        $('#deleteModalBody').text('Are you sure you want to delete <b>' + productName + '</b> ?');
         $('#deleteModal').modal('show');
     });
+
+    //$('#searchFilters');
 });

@@ -29,7 +29,7 @@
             <?php
             if (isset($_SESSION["DB_ERROR_MSG"])) {
                 echo "There was an error trying to connect to the database.<br>";
-                echo "<b>Error: " . $_SESSION["DB_ERROR_MSG"] . "</b>";
+                echo "<b>Error: " . htmlspecialchars($_SESSION["DB_ERROR_MSG"], ENT_QUOTES, 'UTF-8') . "</b>";
             } else {
                 echo "An error has occurred in your site that has prevented it from continuing.";
             }
