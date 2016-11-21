@@ -29,8 +29,8 @@ $(function () {
             $("#deleteModal").modal("hide");
 
             var msg = JSON.parse(jsonMsg);
-
             var classValue = msg.success ? "alert alert-success" : "alert alert-danger";
+
             $("#deleteAlert").attr("class", classValue).html("<strong>" + msg.message + "</strong>").show().delay(5000).fadeOut(400);
             $(".progress-bar-striped").addClass("hidden");
 

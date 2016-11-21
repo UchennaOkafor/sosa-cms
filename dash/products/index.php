@@ -57,83 +57,8 @@ function sanitizeHtml($string) {
 <input id="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
 
 <div class="row">
-    <!-- Menu -->
-    <div class="side-menu">
 
-        <nav class="navbar navbar-default" role="navigation">
-
-            <div class="navbar-header">
-                <div class="brand-wrapper">
-                    <!-- Hamburger -->
-                    <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <div class="profile-header-container hidden-xs">
-                        <div class="profile-header-img">
-                            <img class="img-circle" src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-1-128.png" />
-                            <!-- badge -->
-                            <div class="rank-label-container">
-                                <span class="label label-default rank-label">Welcome, Uchenna.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Brand -->
-                    <div class="brand-name-wrapper">
-                        <a class="navbar-brand" href="#">
-                            S O S A | Inventory
-                        </a>
-                    </div>
-
-                    <!-- Search body -->
-                    <div id="search" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <form class="navbar-form" role="search">
-                                <input name="attr" type="hidden" value="name">
-                                <div class="form-group">
-                                    <input name="query" type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-search"></span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Menu -->
-            <div class="side-menu-container">
-                <ul class="nav navbar-nav">
-
-                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> home</a></li>
-
-                    <!-- Dropdown-->
-                    <li class="panel panel-default" id="dropdown">
-                        <a data-toggle="collapse" href="#dropdown-lvl1">
-                            <span class="glyphicon glyphicon-th-list"></span> products <span class="caret"></span>
-                        </a>
-
-                        <!-- Dropdown level 1 -->
-                        <div id="dropdown-lvl1" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="#">view</a></li>
-                                    <li><a href="#">add</a></li>
-                                    <li><a href="#">edit</a></li>
-                                    <li><a href="#">delete</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> about</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </div>
+    <?php require("../../dash/products/include/sidenav.html") ?>
 
     <!-- Main Content -->
     <div class="container-fluid">
@@ -218,7 +143,6 @@ function sanitizeHtml($string) {
                     </table>
 
                     <?php
-
                     if ($products == null) {
                         $filteredInput = sanitizeHtml($query);
                         $warningAlert =
@@ -229,7 +153,6 @@ function sanitizeHtml($string) {
                         echo $warningAlert;
                     }
                     ?>
-
                     <button id="btn-new-product" class="btn btn-primary">new product
                         <span class="glyphicon glyphicon-plus-sign"></span>
                     </button>
@@ -266,11 +189,9 @@ function sanitizeHtml($string) {
                     </div>
                 </div>
             </div>
-
             <div id="deleteAlert" class="alert alert-dismissable hidden" role="alert"></div>
         </div>
     </div>
-
 </div>
 
 </body>
@@ -279,3 +200,4 @@ function sanitizeHtml($string) {
 <!--TODO fix head html tag-->
 <!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
 <!--TODO Work on the naming conventions for all id elements. Make sure they use the dash convention and not pascal casing, so btn-new-product instead of btnNewProduct-->
+<!--TODO Once design of site is complete, try and implement Bootstrap4-->
