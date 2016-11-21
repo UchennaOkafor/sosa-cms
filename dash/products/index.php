@@ -197,7 +197,7 @@ function sanitizeHtml($string) {
                         if ($products != null) {
                             foreach ($products as $product) {
                                 ?>
-                                <tr>
+                                <tr data-product-id="<?php echo $product["id"] ?>">
                                     <td> <?php echo $product["id"] ?> </td>
                                     <td> <?php echo sanitizeHtml($product["name"]); ?> </td>
                                     <td> <?php echo $product["type"] ?> </td>

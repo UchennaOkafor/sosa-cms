@@ -17,10 +17,11 @@ $(function () {
 
         $("#deleteModalBody").text("Are you sure you want to delete <b>" + productName + "</b> ?");
         $("#deleteModal").modal("show");
+        $("#btn-delete-item").attr("data-product-id", productId);
     });
 
     $("#btn-delete-item").on("click", function () {
-        var postForm = {product_id: 0, csrf_token: $("#csrf_token").val() };
+        var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val() };
         $(".progress-bar-striped").addClass("active");
         $(".progress-bar-striped").removeClass("hidden");
 
@@ -28,10 +29,14 @@ $(function () {
             $("#deleteModal").modal("hide");
 
             var msg = JSON.parse(jsonMsg);
+
             var classValue = msg.success ? "alert alert-success" : "alert alert-danger";
             $("#deleteAlert").attr("class", classValue).html("<strong>" + msg.message + "</strong>").show().delay(5000).fadeOut(400);
-
             $(".progress-bar-striped").addClass("hidden");
+
+            if (msg.success) {
+                $("tr[data-product-id=" + postForm.product_id + "]").remove();
+            }
         });
     });
 });
