@@ -13,12 +13,12 @@ $csrfToken = "";
 $success = false;
 $message = "";
 
-if (! isset($_GET["product_id"]) || ! isset($_GET["csrf_token"])) {
+if (! isset($_POST["product_id"]) || ! isset($_POST["csrf_token"])) {
     $message = "Missing expected parameters";
 } else {
 
-    $productId = $_GET["product_id"];
-    $csrfToken = $_GET["csrf_token"];
+    $productId = $_POST["product_id"];
+    $csrfToken = $_POST["csrf_token"];
 
     if ($_SESSION["csrf_token"] == $csrfToken) {
         $productProvider = new ProductProvider();
@@ -37,4 +37,3 @@ if (! isset($_GET["product_id"]) || ! isset($_GET["csrf_token"])) {
 }
 
 echo json_encode(["success" => $success, "message" => $message]);
-//TODO make sure in deployment mode to change it to _POST. Because the phpStorm IDE is not allowing the use of post variables for some reason

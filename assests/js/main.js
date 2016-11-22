@@ -25,7 +25,7 @@ $(function () {
         $(".progress-bar-striped").addClass("active");
         $(".progress-bar-striped").removeClass("hidden");
 
-        $.get("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
+        $.post("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
             $("#deleteModal").modal("hide");
 
             var msg = JSON.parse(jsonMsg);

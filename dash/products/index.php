@@ -76,11 +76,11 @@ function sanitizeHtml($string) {
                         <div class="form-group">
                             <label for="searchFilters">Refine search by</label>
                             <select id="searchFilters" name="attr" class="form-control">
-                                <option <?php if ($attribute == "id") echo "selected"; ?>>id</option>
-                                <option <?php if ($attribute == "name") echo "selected"; ?>>name</option>
-                                <option <?php if ($attribute == "price") echo "selected"; ?>>price</option>
-                                <option <?php if ($attribute == "type") echo "selected"; ?>>type</option>
-                                <option <?php if ($attribute == "stock") echo "selected"; ?>>stock</option>
+                                <option <?php if ($attribute == "id") echo "selected" ?>>id</option>
+                                <option <?php if ($attribute == "name") echo "selected" ?>>name</option>
+                                <option <?php if ($attribute == "price") echo "selected" ?>>price</option>
+                                <option <?php if ($attribute == "type") echo "selected" ?>>type</option>
+                                <option <?php if ($attribute == "stock") echo "selected" ?>>stock</option>
                             </select>
 
                             <input name="query" type="text" class="form-control" placeholder="Search" value="<?php if ($query != "") echo sanitizeHtml($query); ?>">
@@ -175,15 +175,6 @@ function sanitizeHtml($string) {
                         <div class="modal-footer">
                             <button id="btn-delete-item" type="button" class="btn btn-danger">Yes</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-
-                            <br>
-                            <br>
-
-                            <div class="progress hidden">
-                                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                    <span>Loading...</span>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -201,3 +192,4 @@ function sanitizeHtml($string) {
 <!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
 <!--TODO Work on the naming conventions for all id elements. Make sure they use the dash convention and not pascal casing, so btn-new-product instead of btnNewProduct-->
 <!--TODO Once design of site is complete, try and implement Bootstrap4-->
+<!--TODO Remove all <br> tags-->
