@@ -76,11 +76,11 @@ function sanitizeHtml($string) {
                         <div class="form-group">
                             <label for="searchFilters">Refine search by</label>
                             <select id="searchFilters" name="attr" class="form-control">
-                                <option <?php if ($attribute == "id") echo "selected" ?>>id</option>
-                                <option <?php if ($attribute == "name") echo "selected" ?>>name</option>
-                                <option <?php if ($attribute == "price") echo "selected" ?>>price</option>
-                                <option <?php if ($attribute == "type") echo "selected" ?>>type</option>
-                                <option <?php if ($attribute == "stock") echo "selected" ?>>stock</option>
+                                <option <?php if ($attribute == "id") echo "selected"; ?>>id</option>
+                                <option <?php if ($attribute == "name") echo "selected"; ?>>name</option>
+                                <option <?php if ($attribute == "price") echo "selected"; ?>>price</option>
+                                <option <?php if ($attribute == "type") echo "selected"; ?>>type</option>
+                                <option <?php if ($attribute == "stock") echo "selected"; ?>>stock</option>
                             </select>
 
                             <input name="query" type="text" class="form-control" placeholder="Search" value="<?php if ($query != "") echo sanitizeHtml($query); ?>">
@@ -93,7 +93,7 @@ function sanitizeHtml($string) {
 
                 </div>
 
-                <div class="container-fluid">
+                <div class="container-fluid table-container" style="overflow-x:auto;">
                     <table class="table table-responsive table-striped">
                         <thead>
                         <tr>
@@ -153,11 +153,6 @@ function sanitizeHtml($string) {
                         echo $warningAlert;
                     }
                     ?>
-                    <button id="btn-new-product" class="btn btn-primary">new product
-                        <span class="glyphicon glyphicon-plus-sign"></span>
-                    </button>
-                    <br>
-                    <br>
                 </div>
             </div>
 

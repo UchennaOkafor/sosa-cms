@@ -18,9 +18,49 @@
     <script src="../../assests/js/main.js"></script>
 
     <style>
-        .container {
-            width: 90%;
-            margin-top: 50px;
+        body{ background: #EDECEC}
+
+        .box {
+            border-radius: 0;
+
+            display: block;
+            margin-top: 60px;
+            padding: 50px 25px 10px;
+
+            background: #FFF none repeat scroll 0 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .box-icon {
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: table;
+            margin: -80px auto 0;
+        }
+
+        .box-icon > img {
+            width: 128px;
+            height: 128px;
+        }
+
+        .box-icon span {
+            color: #fff;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .info h4 {
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+
+        .info > p {
+            color: #717171;
+            font-size: 16px;
+            padding-top: 10px;
+            text-align: justify;
         }
     </style>
 </head>
@@ -36,43 +76,45 @@
     <!-- Main Content -->
     <div class="container">
         <div class="side-body">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="box">
+                <div class="box-icon">
+                    <img src="https://cdn0.iconfinder.com/data/icons/round-ui-icons/128/tick_green.png" alt=""/>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <fieldset class="form-group">
-                    <legend>Type</legend>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                            Accessory
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                            Clothes
-                        </label>
-                    </div>
-                </fieldset>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                <div class="info">
+                    <h4 class="text-center">Action successful</h4>
 
-<!--            <form action="/sosa-cms/backend/api/delete/" method="post">-->
-<!--                Name: <input type="text" name="product_id" value="0"><br>-->
-<!--                E-mail: <input type="text" name="csrf_token" value="6867ef1aeb4dfd689187c939d791fced80724e259204f75b9f4bb10c9650935d"><br>-->
-<!--                <input type="submit">-->
-<!--            </form>-->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter product name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Type</label>
+                        <input class="form-control" id="exampleInputPassword1" placeholder="Enter product ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Product price</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">£</div>
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        </div>
+                    </div>
+
+                    <label>Category</label>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="clothes"> Clothes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="accessory"> Accessory
+                        </label>
+                    </div>
+
+                    <a href="" class="btn btn-primary">Add product</a>
+                </div>
+            </div>
         </div>
-
-
-
     </div>
 </div>
 

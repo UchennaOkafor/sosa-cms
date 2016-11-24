@@ -36,11 +36,11 @@
     border-radius: 0;
 }
 
-#btn-new-product {
-    float: right;
-    margin-bottom: 10px;
-}
-
 .btn {
     border-radius: 2px;
+}
+
+.table-container {
+    padding-left: 10px;
+    padding-right: 10px;
 }
