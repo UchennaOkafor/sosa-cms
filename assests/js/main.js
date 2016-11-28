@@ -15,10 +15,27 @@ $(function () {
         var productId = $(this).attr("data-product-id");
         var productName = $(this).attr("data-product-name");
 
-        $("#deleteModalBody").text("Are you sure you want to delete <b>" + productName + "</b> ?");
+        //Kinda hacky, I could of used the element#text method in jQuery but I wanted to escape only a portion of the HTML
+        $("#deleteModalBody").html("Are you sure you want to delete <b>" + escapeHTML(productName) + "</b> ?");
         $("#deleteModal").modal("show");
         $("#btn-delete-item").attr("data-product-id", productId);
     });
+
+    /**
+     *
+     * @param s
+     * @returns {XML|string|void}
+     */
+    function escapeHTML(s) {
+        return s.replace(/[&"<>]/g, function (c) {
+            return {
+                '&': "&amp;",
+                '"': "&quot;",
+                '<': "&lt;",
+                '>': "&gt;"
+            }[c];
+        });
+    }
 
     $("#btn-delete-item").on("click", function () {
         var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val() };
