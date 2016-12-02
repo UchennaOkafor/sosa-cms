@@ -51,6 +51,10 @@ class ProductProvider {
 
     }
 
+    public function getProductById($id) {
+
+    }
+    
     /**
      * Retrieves all products from the database whose attribute have a searched for value
      * @param $attribute string The product attribute to search by
