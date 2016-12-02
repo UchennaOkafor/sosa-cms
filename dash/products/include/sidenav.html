@@ -32,8 +32,8 @@
                 <!-- Search body -->
                 <div id="search" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <form class="navbar-form" role="search">
-                            <input name="attr" type="hidden" value="name">
+                        <form action="../products/view.php" class="navbar-form" role="search">
+                            <input name="attr" type="hidden" value="Name">
                             <div class="form-group">
                                 <input name="query" type="text" class="form-control" placeholder="Search">
                             </div>
@@ -51,16 +51,16 @@
                 <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> home</a></li>
 
                 <!-- Dropdown-->
-                <li class="panel panel-default" id="dropdown">
-                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                <li class="panel panel-default" id="dropdown" aria-expanded="true">
+                    <a data-toggle="collapse" href="">
                         <span class="glyphicon glyphicon-th-list"></span> products <span class="caret"></span>
                     </a>
 
                     <!-- Dropdown level 1 -->
-                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                    <div id="dropdown-lvl1" class="panel-collapse collapse in" aria-expanded="true">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="../products/index.php">view</a></li>
+                                <li><a href="../products/view.php">view</a></li>
                                 <li><a href="../products/add.php">add</a></li>
                             </ul>
                         </div>

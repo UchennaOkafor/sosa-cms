@@ -71,10 +71,10 @@ function sanitizeHtml($string) {
                 <div class="panel-heading">Manage products</div>
                 <div class="container-fluid">
                     <br>
-                    <form action="/sosa-cms/dash/products/" class="form-inline">
+                    <form action="/sosa-cms/dash/products/view.php" class="form-inline">
                         <div class="form-group">
-                            <label for="searchFilters">Refine search by</label>
-                            <select id="searchFilters" name="attr" class="form-control">
+                            <label for="queryFilter">Refine search by</label>
+                            <select id="queryFilter" name="attr" class="form-control">
                                 <option <?php if ($attribute == "Id") echo "selected"; ?>>Id</option>
                                 <option <?php if ($attribute == "Name") echo "selected"; ?>>Name</option>
                                 <option <?php if ($attribute == "Price") echo "selected"; ?>>Price</option>
