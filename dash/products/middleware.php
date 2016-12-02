@@ -12,6 +12,7 @@ Database::getInstance();
 if (! Database::$hasConnection) {
     $_SESSION["DB_ERROR_MSG"] = Database::$dbErrorMsg;
     require ("error.php");
+    die();
 }
 
 if (! isset($_SESSION["csrf_token"]) || $_SESSION["csrf_token"] == "") {

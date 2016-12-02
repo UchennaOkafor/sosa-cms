@@ -58,7 +58,9 @@ class ProductProvider {
      * @return array|null An array of the matched products or null if nothing
      */
     public function getProductsByAttribute($attribute, $value) {
-        if (in_array($attribute, ["id", "name", "type", "price", "stock"])) {
+        $attribute = strtolower($attribute);
+
+        if ($this->isValidProductAttribute($attribute)) {
             $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE $attribute LIKE ?");
 
             if ($stmt->execute(["%$value%"]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
@@ -67,6 +69,15 @@ class ProductProvider {
         }
 
         return null;
+    }
+
+    /**
+     * Checks if the given product Id is a valid products attribute with exception of created_at being omitted
+     * @param $attr string given attribute value
+     * @return bool the boolean result of the operation
+     */
+    private function isValidProductAttribute($attr) {
+        return in_array($attr, ["id", "name", "type", "size", "price", "stock"]);
     }
 
     /**

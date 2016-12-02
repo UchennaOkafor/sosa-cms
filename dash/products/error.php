@@ -23,7 +23,7 @@
 <div class="container">
     <div class="panel panel-danger">
         <div class="panel-heading">
-            <h3 class="panel-title">Site Error</h3>
+            <h3 class="panel-title">An error has occurred</h3>
         </div>
         <div class="panel-body">
             <?php
@@ -31,7 +31,7 @@
                 echo "There was an error trying to connect to the database.<br>";
                 echo "<b>Error: " . htmlspecialchars($_SESSION["DB_ERROR_MSG"], ENT_QUOTES, 'UTF-8') . "</b>";
             } else {
-                echo "An error has occurred in your site that has prevented it from continuing.";
+                echo "Oops, looks like something has gone wrong. Hmmm.. this seems serious.";
             }
         ?>
         </div>
@@ -40,5 +40,3 @@
 
 </body>
 </html>
-
-<?php die() ?>

@@ -39,8 +39,6 @@ $(function () {
 
     $("#btn-delete-item").on("click", function () {
         var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val() };
-        $(".progress-bar-striped").addClass("active");
-        $(".progress-bar-striped").removeClass("hidden");
 
         $.post("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
             $("#deleteModal").modal("hide");
@@ -49,7 +47,6 @@ $(function () {
             var classValue = msg.success ? "alert alert-success" : "alert alert-danger";
 
             $("#deleteAlert").attr("class", classValue).html("<strong>" + msg.message + "</strong>").show().delay(5000).fadeOut(400);
-            $(".progress-bar-striped").addClass("hidden");
 
             if (msg.success) {
                 $("tr[data-product-id=" + postForm.product_id + "]").remove();

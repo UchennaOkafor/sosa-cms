@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+require "middleware.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,6 @@
 
         .box {
             border-radius: 0;
-
             display: block;
             margin-top: 60px;
             padding: 50px 25px 10px;
@@ -62,61 +63,88 @@
             padding-top: 10px;
             text-align: justify;
         }
+
+        hr {
+            margin-top: 53px;
+            margin-bottom: 9px;
+        }
     </style>
 </head>
-
 <body>
 
-<input id="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
-
 <div class="row">
-
     <?php require("../../dash/products/include/sidenav.html") ?>
-
     <!-- Main Content -->
     <div class="container">
         <div class="side-body">
             <div class="box">
                 <div class="box-icon">
-                    <img src="https://cdn0.iconfinder.com/data/icons/round-ui-icons/128/tick_green.png" alt=""/>
+                    <img src="https://cdn4.iconfinder.com/data/icons/e-commerce-and-shopping-3/500/checked-checklist-notepad-128.png" alt=""/>
                 </div>
                 <div class="info">
-                    <h4 class="text-center">Action successful</h4>
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter product name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Type</label>
-                        <input class="form-control" id="exampleInputPassword1" placeholder="Enter product ">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputAmount">Product price</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">£</div>
-                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                    <h4 class="text-center">Add new product</h4>
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label" for="name">Name</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </div>
+                                <input class="form-control" id="name" name="name" type="text"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <label>Category</label>
-                    <div class="form-group">
-                        <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="clothes"> Clothes
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="accessory"> Accessory
-                        </label>
-                    </div>
+                        <div class="form-group">
+                            <label class="control-label" for="price">Price</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-gbp"></span>
+                                </div>
+                                <input class="form-control" id="price" name="price" type="text"/>
+                            </div>
+                        </div>
 
-                    <a href="" class="btn btn-primary">Add product</a>
+                        <div class="form-group">
+                            <label class="control-label" for="stock">Stock</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-tasks"></span>
+                                </div>
+                                <input class="form-control" id="stock" name="stock" type="text"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group input-group">
+                            <label for="size">Size</label>
+                            <select id="size" name="size" class="form-control">
+                                <option>XS</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
+                        </div>
+
+                        <label>Category</label>
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="category" id="inlineRadio1" value="clothes" checked> Clothes
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="category" id="inlineRadio2" value="accessory"> Accessory
+                            </label>
+                        </div>
+
+                        <input name="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
+
+                        <hr>
+                        <input type="submit" class="btn btn-success pull-right" value="Add product">
+                        <hr>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

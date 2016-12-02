@@ -1,5 +1,6 @@
 # sosa-cms
 A content management web panel for a clothing company.
+It is a CRUD website
 
 ### Omission of backend framework:
 The reason I omitted the use of a backend framework such as Laravel was because this was a university project, so by using a framework,
