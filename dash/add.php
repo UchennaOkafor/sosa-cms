@@ -11,13 +11,13 @@ require "middleware.php";
 
     <title>S O S A | Dashboard</title>
 
-    <link rel="stylesheet" href="../../assests/vendor/bootstrap-3.3.7.min.css">
-    <link rel="stylesheet" href="../../assests/css/sidebar-nav.css">
-    <link rel="stylesheet" href="../../assests/css/laf.css">
+    <link rel="stylesheet" href="../assests/css/bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="../assests/css/sidebar-nav.css">
+    <link rel="stylesheet" href="../assests/css/laf.css">
 
-    <script src="../../assests/vendor/jquery-3.1.1.min.js"></script>
-    <script src="../../assests/vendor/bootstrap-3.3.7.min.js"></script>
-    <script src="../../assests/js/main.js"></script>
+    <script src="../assests/vendor/jquery-3.1.1.min.js"></script>
+    <script src="../assests/vendor/bootstrap-3.3.7.min.js"></script>
+    <script src="../assests/js/main.js"></script>
 
     <style>
         body{ background: #EDECEC}

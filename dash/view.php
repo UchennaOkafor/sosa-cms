@@ -3,7 +3,7 @@
 use \Cms\Provider\ProductProvider;
 
 require "middleware.php";
-require "../../backend/provider/ProductProvider.php";
+require "../backend/provider/ProductProvider.php";
 
 $attribute = "";
 $query = "";
@@ -42,13 +42,13 @@ function sanitizeHtml($string) {
 
     <title>S O S A | Dashboard</title>
 
-    <link rel="stylesheet" href="../../assests/vendor/bootstrap-3.3.7.min.css">
-    <link rel="stylesheet" href="../../assests/css/sidebar-nav.css">
-    <link rel="stylesheet" href="../../assests/css/laf.css">
+    <link rel="stylesheet" href="../assests/css/bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="../assests/css/sidebar-nav.css">
+    <link rel="stylesheet" href="../assests/css/laf.css">
 
-    <script src="../../assests/vendor/jquery-3.1.1.min.js"></script>
-    <script src="../../assests/vendor/bootstrap-3.3.7.min.js"></script>
-    <script src="../../assests/js/main.js"></script>
+    <script src="../assests/vendor/jquery-3.1.1.min.js"></script>
+    <script src="../assests/vendor/bootstrap-3.3.7.min.js"></script>
+    <script src="../assests/js/main.js"></script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@ function sanitizeHtml($string) {
 
 <div class="row">
 
-    <?php require("../../dash/products/include/sidenav.html") ?>
+    <?php require("../dash/include/sidenav.html") ?>
 
     <!-- Main Content -->
     <div class="container-fluid">
@@ -71,7 +71,7 @@ function sanitizeHtml($string) {
                 <div class="panel-heading">Manage products</div>
                 <div class="container-fluid">
                     <br>
-                    <form action="/sosa-cms/dash/products/view.php" class="form-inline">
+                    <form action="/sosa-cms/dash/view.php" class="form-inline">
                         <div class="form-group">
                             <label for="queryFilter">Refine search by</label>
                             <select id="queryFilter" name="attr" class="form-control">

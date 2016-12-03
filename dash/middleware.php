@@ -4,14 +4,14 @@ session_start();
 
 use Cms\Database\Config\Database;
 
-require "../../backend/db/Database.php";
+require "../backend/db/Database.php";
 
 //Initializes the pdo instance, if an error occurs it will throw an error message.
 Database::getInstance();
 
 if (! Database::$hasConnection) {
     $_SESSION["DB_ERROR_MSG"] = Database::$dbErrorMsg;
-    require ("error.php");
+    require("error.php");
     die();
 }
 
