@@ -54,7 +54,7 @@ class ProductProvider {
     public function getProductById($id) {
 
     }
-    
+
     /**
      * Retrieves all products from the database whose attribute have a searched for value
      * @param $attribute string The product attribute to search by
@@ -94,3 +94,5 @@ class ProductProvider {
         return $stmt->execute([$id]);
     }
 }
+
+//TODO make it so if the user selects a specific attribute like ID, or Size, Stock that it will use equal instead of LIKE to find results

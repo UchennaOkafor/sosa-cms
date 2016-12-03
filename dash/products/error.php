@@ -6,7 +6,7 @@
     <meta name="author" content="">
 
     <title>S O S A | Error</title>
-    <link rel="stylesheet" href="../../assests/include/bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="../../assests/vendor/bootstrap-3.3.7.min.css">
     <style>
         .container {
             margin-top: 2%;
