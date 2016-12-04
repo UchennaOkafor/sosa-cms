@@ -188,3 +188,4 @@ function sanitizeHtml($string) {
 <!--TODO Work on the naming conventions for all id elements. Make sure they use the dash convention and not pascal casing, so btn-new-product instead of btnNewProduct-->
 <!--TODO Once design of site is complete, try and implement Bootstrap4-->
 <!--TODO Remove all <br> tags-->
+<!--TODO Use those methods to determine the folder instead of using .. to go back a folder-->
