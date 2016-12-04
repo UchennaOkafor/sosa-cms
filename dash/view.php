@@ -71,7 +71,7 @@ function sanitizeHtml($string) {
                 <div class="panel-heading">Manage products</div>
                 <div class="container-fluid">
                     <br>
-                    <form action="/sosa-cms/dash/view.php" class="form-inline">
+                    <form action="../dash/view.php" class="form-inline">
                         <div class="form-group">
                             <label for="queryFilter">Refine search by</label>
                             <select id="queryFilter" name="attr" class="form-control">

@@ -73,7 +73,7 @@ require "middleware.php";
 <body>
 
 <div class="row">
-    <?php require("../../dash/products/include/sidenav.html") ?>
+    <?php require("../dash/include/sidenav.html") ?>
     <!-- Main Content -->
     <div class="container">
         <div class="side-body">
