@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10e9e655-563d-4c92-b759-ed83e14dcb36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dash/add.php" afterPath="$PROJECT_DIR$/dash/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dash/view.php" afterPath="$PROJECT_DIR$/dash/view.php" />
     </list>
     <ignored path="sosa-cms.iws" />
     <ignored path=".idea/" />
@@ -268,7 +266,7 @@
       <workItem from="1480477372272" duration="1718000" />
       <workItem from="1480610257278" duration="22143000" />
       <workItem from="1480726362088" duration="2133000" />
-      <workItem from="1480872179407" duration="445000" />
+      <workItem from="1480872179407" duration="454000" />
     </task>
     <task id="LOCAL-00001" summary="vcs commit">
       <created>1478043622279</created>
@@ -585,11 +583,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480872368040</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="* Minor changes">
+      <created>1480872627982</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1480872627982</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129162000" />
+    <option name="totallyTimeSpent" value="129171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
