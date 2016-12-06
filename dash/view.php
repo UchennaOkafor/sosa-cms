@@ -131,7 +131,7 @@ function sanitizeHtml($string) {
                                     <td> <span class="<?php echo getLabelClassValue($product["stock"]) ?>"><?php echo $product["stock"] ?></span> </td>
                                     <td> <?php echo $product["created_at"] ?> </td>
                                     <td>
-                                        <a class="btn btn-warning btn-edit" data-product-id="<?php echo $product["id"] ?>">Edit</a>
+                                        <a class="btn btn-warning btn-edit" href="<?php echo "product.php?action=edit&id=" . $product["id"] ?>">Edit</a>
                                         <a class="btn btn-danger btn-delete" data-product-id="<?php echo $product["id"] ?>" data-product-name="<?php echo sanitizeHtml($product["name"]) ?>">Delete</a>
                                     </td>
                                 </tr>

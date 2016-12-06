@@ -47,12 +47,22 @@ class ProductProvider {
         return null;
     }
 
-    public function editProduct($productId, $name, $type, $price, $stock) {
+    public function editProduct($productId, $name, $type, $price, $stock, $size) {
+        $stmt = $this->pdoInstance->prepare("UPDATE products 
+                                             SET name = ?, type = ?, price = ?, stock = ?, size = ? 
+                                             WHERE id = ?");
 
+        return $stmt->execute([$name, $type, $price, $stock, $size, $productId]);
     }
 
     public function getProductById($id) {
+        $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE id = ?");
 
+        if ($stmt->execute([$id]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+            return $result[0];
+        }
+
+        return null;
     }
 
     /**

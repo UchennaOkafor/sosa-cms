@@ -1,5 +1,24 @@
 <?php
 require "middleware.php";
+require "../backend/provider/ProductProvider.php";
+
+use \Cms\Provider\ProductProvider;
+
+$id = null;
+$product = null;
+$actionIsAdd = true;
+
+if (isset($_GET["id"])) {
+    $productProvider = new ProductProvider();
+    $id = $_GET["id"];
+
+    if ($productProvider->isProductExists($_GET["id"])) {
+        $actionIsAdd = false;
+        $product = $productProvider->getProductById($id);
+    } else {
+        header("location: product.php?action=add");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +88,25 @@ require "middleware.php";
             margin-bottom: 9px;
         }
     </style>
+    <script>
+        $(function () {
+            $("form").submit(function(e){
+                e.preventDefault();
+
+                var form = $(this);
+
+                $.ajax({
+                    url   : form.attr("action"),
+                    type  : form.attr("method"),
+                    data  : form.serialize(),
+                    success: function(json){
+                        alert(json);
+                    }
+                });
+            });
+
+        });
+    </script>
 </head>
 <body>
 
@@ -83,62 +121,76 @@ require "middleware.php";
                 </div>
                 <div class="info">
                     <h4 class="text-center">Add new product</h4>
-                    <form>
+                    <form method="POST" action="../backend/api/product/">
+
+                        <div class="form-group input-group <?php if ($actionIsAdd) echo "hidden" ?>">
+                            <label class="control-label" for="id">Id</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </div>
+                                <input class="form-control" id="id" name="id" type="text" value="<?php if (! $actionIsAdd) echo $product["id"]; ?>" readonly/>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </div>
-                                <input class="form-control" id="name" name="name" type="text"/>
+                                <?php  function sanitizeHtml($string) {
+                                    return htmlspecialchars($string, ENT_QUOTES, "UTF-8");
+                                }?>
+                                <input class="form-control" id="name" name="name" type="text" value="<?php if (! $actionIsAdd) echo sanitizeHtml($product["name"]); ?>" required/>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group input-group">
                             <label class="control-label" for="price">Price</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-gbp"></span>
                                 </div>
-                                <input class="form-control" id="price" name="price" type="text"/>
+                                <input class="form-control" id="price" name="price" type="number" value="<?php if (! $actionIsAdd) echo $product["price"]; ?>" required/>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group input-group">
                             <label class="control-label" for="stock">Stock</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks"></span>
                                 </div>
-                                <input class="form-control" id="stock" name="stock" type="text"/>
+                                <input class="form-control" id="stock" name="stock" type="number" value="<?php if (! $actionIsAdd) echo $product["stock"]; ?>" required/>
                             </div>
                         </div>
 
                         <div class="form-group input-group">
                             <label for="size">Size</label>
                             <select id="size" name="size" class="form-control">
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
+                                <option <?php if ($product != null && $product["size"] == "XS") echo "selected"; ?>>XS</option>
+                                <option <?php if ($product != null && $product["size"] == "S") echo "selected"; ?>>S</option>
+                                <option <?php if ($product != null && $product["size"] == "M") echo "selected"; ?>>M</option>
+                                <option <?php if ($product != null && $product["size"] == "L") echo "selected"; ?>>L</option>
+                                <option <?php if ($product != null && $product["size"] == "XL") echo "selected"; ?>>XL</option>
                             </select>
                         </div>
 
-                        <label>Category</label>
+                        <label>Type</label>
                         <div class="form-group">
                             <label class="radio-inline">
-                                <input type="radio" name="category" id="inlineRadio1" value="clothes" checked> Clothes
+                                <input type="radio" name="type" id="clothes-radio" value="Clothes" <?php if ($product != null && $product["type"] == "Clothes") echo "checked"; ?>>Clothes
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="category" id="inlineRadio2" value="accessory"> Accessory
+                                <input type="radio" name="type" id="accessory-radio" value="Accessory" <?php if ($product != null && $product["type"] == "Accessory") echo "checked"; ?>>Accessory
                             </label>
                         </div>
 
                         <input name="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
 
                         <hr>
-                        <input type="submit" class="btn btn-success pull-right" value="Add product">
+                        <input type="submit" class="btn <?php echo $actionIsAdd ? "btn-primary" : "btn-success" ?> pull-right" value="<?php echo $actionIsAdd ? "Add product" : "Update product" ?> ">
                         <hr>
                     </form>
                 </div>
