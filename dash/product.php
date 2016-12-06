@@ -120,9 +120,9 @@ if (isset($_GET["id"])) {
                     <img src="https://cdn4.iconfinder.com/data/icons/e-commerce-and-shopping-3/500/checked-checklist-notepad-128.png" alt=""/>
                 </div>
                 <div class="info">
-                    <h4 class="text-center">Add new product</h4>
-                    <form method="POST" action="../backend/api/product/">
+                    <h4 class="text-center"><?php echo $actionIsAdd ? "Add new product" : "Edit product" ?></h4>
 
+                    <form method="POST" action="../backend/api/product/">
                         <div class="form-group input-group <?php if ($actionIsAdd) echo "hidden" ?>">
                             <label class="control-label" for="id">Id</label>
                             <div class="input-group">
@@ -142,7 +142,7 @@ if (isset($_GET["id"])) {
                                 <?php  function sanitizeHtml($string) {
                                     return htmlspecialchars($string, ENT_QUOTES, "UTF-8");
                                 }?>
-                                <input class="form-control" id="name" name="name" type="text" value="<?php if (! $actionIsAdd) echo sanitizeHtml($product["name"]); ?>" required/>
+                                <input class="form-control" id="name" name="name" type="text" value="<?php if (! $actionIsAdd) echo sanitizeHtml($product["name"]); ?>" maxlength="150" required/>
                             </div>
                         </div>
 
@@ -187,6 +187,7 @@ if (isset($_GET["id"])) {
                             </label>
                         </div>
 
+                        <input name="action" type="hidden" value="<?php echo $actionIsAdd ? "add" : "edit" ?>">
                         <input name="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
 
                         <hr>
@@ -195,6 +196,7 @@ if (isset($_GET["id"])) {
                     </form>
                 </div>
             </div>
+            <a class="btn btn-primary pull-left glyphicon glyphicon-arrow-left" href="view.php"> Return</a>
         </div>
     </div>
 </div>

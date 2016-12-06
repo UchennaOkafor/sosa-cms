@@ -38,19 +38,25 @@ $(function () {
     }
 
     $("#btn-delete-item").on("click", function () {
-        var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val() };
+        var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val(), "action" : "delete"};
 
-        $.post("/sosa-cms/backend/api/delete/", postForm).done(function(jsonMsg) {
+        $.post("/sosa-cms/backend/api/product/", postForm).done(function(jsonMsg) {
             $("#deleteModal").modal("hide");
+            var responseMsg = JSON.parse(jsonMsg);
 
-            var msg = JSON.parse(jsonMsg);
-            var classValue = msg.success ? "alert alert-success" : "alert alert-danger";
+            var classValue = responseMsg.success ? "alert alert-success" : "alert alert-danger";
+            var alertMsg = "";
 
-            $("#deleteAlert").attr("class", classValue).html("<strong>" + msg.message + "</strong>").show().delay(5000).fadeOut(400);
-
-            if (msg.success) {
+            if (responseMsg.success) {
+                alertMsg = "Product with Id " + postForm.product_id + "  has been successfully deleted.";
                 $("tr[data-product-id=" + postForm.product_id + "]").remove();
+            } else {
+                alertMsg = "Product could not be deleted";
             }
+
+            $("#deleteAlert").attr("class", classValue).html("<strong>" + alertMsg + "</strong>").show().delay(5000).fadeOut(400);
         });
     });
 });
+
+//TODO tidy up javascript/jquery

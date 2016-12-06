@@ -34,6 +34,21 @@ class ProductProvider {
     }
 
     /**
+     * @param $name
+     * @param $price
+     * @param $stock
+     * @param $size
+     * @param $type
+     * @return bool
+     */
+    public function addProduct($name, $price, $stock, $size, $type) {
+        $stmt = $this->pdoInstance->prepare("INSERT INTO products(name, price, stock, size, type)
+                                             VALUES(?, ?, ?, ?, ?)");
+
+        return $stmt->execute([$name, $price, $stock, $size, $type]) && $stmt->rowCount() == 1;
+    }
+
+    /**
      * Retrieves an array of all products in the system
      * @return array|null
      */
@@ -106,3 +121,4 @@ class ProductProvider {
 }
 
 //TODO make it so if the user selects a specific attribute like ID, or Size, Stock that it will use equal instead of LIKE to find results
+//TODO make sure to comment all code
