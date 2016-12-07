@@ -45,16 +45,25 @@ $(function () {
     $("#multipurpose-form").submit(function(e){
         e.preventDefault();
         var form = $(this);
-        var serializedData = form.serialize();
 
         $.ajax({
-            url   : form.attr("action"),
-            type  : form.attr("method"),
-            data  : serializedData,
+            url : form.attr("action"),
+            type : form.attr("method"),
+            data : form.serialize(),
             success: function(json) {
-                alert(json);
-                form.trigger("reset");
-                $("#txt-name").trigger("keydown");
+                var responseMsg = JSON.parse(json);
+                var classValue = responseMsg.success ? "alert alert-success" : "alert alert-danger";
+                var outputMSg = "";
+
+                //TODO make it to also output error messages if something goes wrong
+                if (form.serialize().includes("action=add")) {
+                    outputMSg =  "Product has been successfully created";
+                    $(this).trigger("reset");
+                } else {
+                    outputMSg =  "Product has been successfully edited";
+                }
+
+                $("#multipurpose-alert").attr("class", classValue).html("<strong>" + outputMSg + "</strong>").show().delay(5000).fadeOut(400);
             }
         });
     });

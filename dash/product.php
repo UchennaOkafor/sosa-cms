@@ -180,6 +180,8 @@ if (isset($_GET["id"])) {
                         <hr>
                     </form>
                 </div>
+
+                <div id="multipurpose-alert" class="alert hidden" role="alert"></div>
             </div>
             <a class="btn btn-default" href="view.php">
                 <span class="glyphicon glyphicon-arrow-left"></span>

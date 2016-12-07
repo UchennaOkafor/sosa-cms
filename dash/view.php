@@ -175,7 +175,7 @@ function sanitizeHtml($string) {
                     </div>
                 </div>
             </div>
-            <div id="deleteAlert" class="alert alert-dismissable hidden" role="alert"></div>
+            <div id="deleteAlert" class="alert hidden" role="alert"></div>
         </div>
     </div>
 </div>
