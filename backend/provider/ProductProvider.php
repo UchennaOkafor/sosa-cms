@@ -41,7 +41,7 @@ class ProductProvider {
      * @param $type
      * @return bool
      */
-    public function addProduct($name, $price, $stock, $size, $type) {
+    public function addProduct($name, $price, $stock, $type, $size) {
         $stmt = $this->pdoInstance->prepare("INSERT INTO products(name, price, stock, size, type)
                                              VALUES(?, ?, ?, ?, ?)");
 
@@ -62,12 +62,12 @@ class ProductProvider {
         return null;
     }
 
-    public function editProduct($productId, $name, $type, $price, $stock, $size) {
+    public function editProduct($id, $name, $price, $stock, $type, $size) {
         $stmt = $this->pdoInstance->prepare("UPDATE products 
-                                             SET name = ?, type = ?, price = ?, stock = ?, size = ? 
+                                             SET name = ?, `type` = ?, price = ?, stock = ?, size = ? 
                                              WHERE id = ?");
 
-        return $stmt->execute([$name, $type, $price, $stock, $size, $productId]);
+        return $stmt->execute([$name, $type, $price, $stock, $size, $id]);
     }
 
     public function getProductById($id) {

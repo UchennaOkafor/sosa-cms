@@ -22,7 +22,7 @@ if (isset($_GET["id"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -50,6 +50,8 @@ if (isset($_GET["id"])) {
             background: #FFF none repeat scroll 0 0;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             margin-bottom: 30px;
+
+            max-width: 680px;
         }
 
         .box-icon {
@@ -88,25 +90,6 @@ if (isset($_GET["id"])) {
             margin-bottom: 9px;
         }
     </style>
-    <script>
-        $(function () {
-            $("form").submit(function(e){
-                e.preventDefault();
-
-                var form = $(this);
-
-                $.ajax({
-                    url   : form.attr("action"),
-                    type  : form.attr("method"),
-                    data  : form.serialize(),
-                    success: function(json){
-                        alert(json);
-                    }
-                });
-            });
-
-        });
-    </script>
 </head>
 <body>
 
@@ -122,7 +105,7 @@ if (isset($_GET["id"])) {
                 <div class="info">
                     <h4 class="text-center"><?php echo $actionIsAdd ? "Add new product" : "Edit product" ?></h4>
 
-                    <form method="POST" action="../backend/api/product/">
+                    <form id="multipurpose-form" method="POST" action="../backend/api/product/">
                         <div class="form-group input-group <?php if ($actionIsAdd) echo "hidden" ?>">
                             <label class="control-label" for="id">Id</label>
                             <div class="input-group">
@@ -134,7 +117,7 @@ if (isset($_GET["id"])) {
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="name">Name</label>
+                            <label class="control-label" for="txt-name">Name</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-pencil"></span>
@@ -142,9 +125,11 @@ if (isset($_GET["id"])) {
                                 <?php  function sanitizeHtml($string) {
                                     return htmlspecialchars($string, ENT_QUOTES, "UTF-8");
                                 }?>
-                                <input class="form-control" id="name" name="name" type="text" value="<?php if (! $actionIsAdd) echo sanitizeHtml($product["name"]); ?>" maxlength="150" required/>
+                                <textarea class="form-control" id="txt-name" name="name" maxlength="100" required><?php if (! $actionIsAdd) echo sanitizeHtml($product["name"]); ?></textarea>
                             </div>
+                            <label id="lbl-char-remaining" class="pull-right">100 character(s) remaining</label>
                         </div>
+
 
                         <div class="form-group input-group">
                             <label class="control-label" for="price">Price</label>
@@ -152,7 +137,7 @@ if (isset($_GET["id"])) {
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-gbp"></span>
                                 </div>
-                                <input class="form-control" id="price" name="price" type="number" value="<?php if (! $actionIsAdd) echo $product["price"]; ?>" required/>
+                                <input class="form-control" id="price" name="price" type="number" step="0.01" " value="<?php if (! $actionIsAdd) echo $product["price"]; ?>" required/>
                             </div>
                         </div>
 
@@ -180,7 +165,7 @@ if (isset($_GET["id"])) {
                         <label>Type</label>
                         <div class="form-group">
                             <label class="radio-inline">
-                                <input type="radio" name="type" id="clothes-radio" value="Clothes" <?php if ($product != null && $product["type"] == "Clothes") echo "checked"; ?>>Clothes
+                                <input type="radio" name="type" id="clothes-radio" value="Clothes" checked>Clothes
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="type" id="accessory-radio" value="Accessory" <?php if ($product != null && $product["type"] == "Accessory") echo "checked"; ?>>Accessory
@@ -196,7 +181,10 @@ if (isset($_GET["id"])) {
                     </form>
                 </div>
             </div>
-            <a class="btn btn-primary pull-left glyphicon glyphicon-arrow-left" href="view.php"> Return</a>
+            <a class="btn btn-default" href="view.php">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Return
+            </a>
         </div>
     </div>
 </div>

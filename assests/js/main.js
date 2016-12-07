@@ -21,24 +21,8 @@ $(function () {
         $("#btn-delete-item").attr("data-product-id", productId);
     });
 
-    /**
-     *
-     * @param s
-     * @returns {XML|string|void}
-     */
-    function escapeHTML(s) {
-        return s.replace(/[&"<>]/g, function (c) {
-            return {
-                '&': "&amp;",
-                '"': "&quot;",
-                '<': "&lt;",
-                '>': "&gt;"
-            }[c];
-        });
-    }
-
     $("#btn-delete-item").on("click", function () {
-        var postForm = {product_id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val(), "action" : "delete"};
+        var postForm = {id: $(this).attr("data-product-id"), csrf_token: $("#csrf_token").val(), "action" : "delete"};
 
         $.post("/sosa-cms/backend/api/product/", postForm).done(function(jsonMsg) {
             $("#deleteModal").modal("hide");
@@ -48,8 +32,8 @@ $(function () {
             var alertMsg = "";
 
             if (responseMsg.success) {
-                alertMsg = "Product with Id " + postForm.product_id + "  has been successfully deleted.";
-                $("tr[data-product-id=" + postForm.product_id + "]").remove();
+                alertMsg = "Product with Id " + postForm.id + "  has been successfully deleted.";
+                $("tr[data-product-id=" + postForm.id + "]").remove();
             } else {
                 alertMsg = "Product could not be deleted";
             }
@@ -57,6 +41,44 @@ $(function () {
             $("#deleteAlert").attr("class", classValue).html("<strong>" + alertMsg + "</strong>").show().delay(5000).fadeOut(400);
         });
     });
+
+    $("#multipurpose-form").submit(function(e){
+        e.preventDefault();
+        var form = $(this);
+        var serializedData = form.serialize();
+
+        $.ajax({
+            url   : form.attr("action"),
+            type  : form.attr("method"),
+            data  : serializedData,
+            success: function(json) {
+                alert(json);
+                form.trigger("reset");
+                $("#txt-name").trigger("keydown");
+            }
+        });
+    });
+
+    $("#txt-name").on("keydown", function () {
+        var charsLeft = parseInt($(this).attr("maxlength")) - $(this).val().length;
+        $("#lbl-char-remaining").html(charsLeft + " character(s) remaining");
+    });
 });
+
+/**
+ *
+ * @param s
+ * @returns {XML|string|void}
+ */
+function escapeHTML(s) {
+    return s.replace(/[&"<>]/g, function (c) {
+        return {
+            '&': "&amp;",
+            '"': "&quot;",
+            '<': "&lt;",
+            '>': "&gt;"
+        }[c];
+    });
+}
 
 //TODO tidy up javascript/jquery
