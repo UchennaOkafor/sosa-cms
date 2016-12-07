@@ -68,7 +68,7 @@ $(function () {
         });
     });
 
-    $("#txt-name").on("keydown", function () {
+    $("#txt-name").on("keypress keyup keydown", function () {
         var charsLeft = parseInt($(this).attr("maxlength")) - $(this).val().length;
         $("#lbl-char-remaining").html(charsLeft + " character(s) remaining");
     });
