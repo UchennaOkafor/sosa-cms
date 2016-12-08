@@ -42,7 +42,7 @@ $(function () {
         });
     });
 
-    $("#multipurpose-form").submit(function(e){
+    $("#multipurpose-form").submit(function(e) {
         e.preventDefault();
         var form = $(this);
 
@@ -55,17 +55,39 @@ $(function () {
                 var classValue = responseMsg.success ? "alert alert-success" : "alert alert-danger";
                 var outputMSg = "";
 
-                //TODO make it to also output error messages if something goes wrong
                 if (form.serialize().includes("action=add")) {
-                    outputMSg =  "Product has been successfully created";
-                    $(this).trigger("reset");
+                    if (responseMsg.success) {
+                        outputMSg = "<strong>Congratulations, the product has been created successfully!</strong>";
+                        $(this).trigger("reset");
+                    } else {
+                        outputMSg += "<strong>Sorry, but the product could not be added.</strong>";
+                        outputMSg += getErrorMessagesAsList(responseMsg.errorMessages);
+                    }
                 } else {
-                    outputMSg =  "Product has been successfully edited";
+                    if (responseMsg.success) {
+                        outputMSg = "<strong>Congratulations, the product has been edited successfully!</strong>";
+                    } else {
+                        outputMSg += "<strong>Sorry, but the product could not be edited.</strong>";
+                        outputMSg += getErrorMessagesAsList(responseMsg.errorMessages);
+                    }
                 }
 
-                $("#multipurpose-alert").attr("class", classValue).html("<strong>" + outputMSg + "</strong>").show().delay(5000).fadeOut(400);
+                $("#multipurpose-alert").attr("class", classValue).html(outputMSg).show().delay(6000).fadeOut(500);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                var text = "A " + xhr.status + "<strong>[" + xhr.statusText + "]</strong> network error has occurred";
+                $("#multipurpose-alert").attr("class", "alert alert-danger").html(text).show().delay(6000).fadeOut(500);
             }
         });
+
+        function getErrorMessagesAsList(errorMessages) {
+            var ul = $("<ul></ul>");
+            $.each(errorMessages, function(i, item) {
+                ul.append($("<li></li>").text(item));
+            });
+
+            return ul[0].outerHTML;
+        }
     });
 
     $("#txt-name").on("keypress keyup keydown", function () {

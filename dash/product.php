@@ -130,14 +130,13 @@ if (isset($_GET["id"])) {
                             <label id="lbl-char-remaining" class="pull-right">100 character(s) remaining</label>
                         </div>
 
-
                         <div class="form-group input-group">
                             <label class="control-label" for="price">Price</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-gbp"></span>
                                 </div>
-                                <input class="form-control" id="price" name="price" type="number" step="0.01" " value="<?php if (! $actionIsAdd) echo $product["price"]; ?>" required/>
+                                <input class="form-control" id="price" name="price" type="number" min="0.01" step="0.01" " value="<?php if (! $actionIsAdd) echo $product["price"]; ?>" required/>
                             </div>
                         </div>
 
@@ -147,13 +146,13 @@ if (isset($_GET["id"])) {
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks"></span>
                                 </div>
-                                <input class="form-control" id="stock" name="stock" type="number" value="<?php if (! $actionIsAdd) echo $product["stock"]; ?>" required/>
+                                <input class="form-control" id="stock" name="stock" type="number" min="1" value="<?php if (! $actionIsAdd) echo $product["stock"]; ?>" required/>
                             </div>
                         </div>
 
                         <div class="form-group input-group">
                             <label for="size">Size</label>
-                            <select id="size" name="size" class="form-control">
+                            <select id="size" name="size" class="form-control" required>
                                 <option <?php if ($product != null && $product["size"] == "XS") echo "selected"; ?>>XS</option>
                                 <option <?php if ($product != null && $product["size"] == "S") echo "selected"; ?>>S</option>
                                 <option <?php if ($product != null && $product["size"] == "M") echo "selected"; ?>>M</option>

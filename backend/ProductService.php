@@ -65,8 +65,8 @@ class ProductService {
             $errorMsgs[] = "Product name cannot be empty or be greater than 100 characters";
         }
 
-        if (! preg_match("/^\d+(\.\d{1,2})?$/", $price)) {
-            $errorMsgs[] = "Price entered must a valid 2 decimal place number";
+        if (! preg_match("/^\d{1,8}(\.\d{1,2})?$/", $price)) {
+            $errorMsgs[] = "Price entered must a valid 2 decimal place number. Price must not be greater than 8 digits";
         }
 
         if (! filter_var($stock, FILTER_VALIDATE_INT)) {
