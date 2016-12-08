@@ -6,7 +6,8 @@ use Cms\Database\Config\Database;
 use PDO;
 
 /**
- * This class is used to abstract the basic CRUD functionality of the products table. Including other functionality.
+ * This class is used to abstract the basic CRUD functionality of the products table and other functionalities.
+ * This is the data access layer
  * Class ProductProvider
  */
 class ProductProvider {
@@ -33,14 +34,6 @@ class ProductProvider {
         return $stmt->execute([$id]) && $stmt->rowCount() == 1;
     }
 
-    /**
-     * @param $name
-     * @param $price
-     * @param $stock
-     * @param $size
-     * @param $type
-     * @return bool
-     */
     public function addProduct($name, $price, $stock, $type, $size) {
         $stmt = $this->pdoInstance->prepare("INSERT INTO products(name, price, stock, size, type)
                                              VALUES(?, ?, ?, ?, ?)");
@@ -49,7 +42,7 @@ class ProductProvider {
     }
 
     /**
-     * Retrieves an array of all products in the system
+     * Retrieves an array of all products in the database
      * @return array|null
      */
     public function getAllProducts() {
@@ -70,6 +63,11 @@ class ProductProvider {
         return $stmt->execute([$name, $type, $price, $stock, $size, $id]);
     }
 
+    /**
+     * Retrieves a product from the database based on the Id
+     * @param $id int the id of the target product
+     * @return array|null the product if found, else null
+     */
     public function getProductById($id) {
         $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE id = ?");
 
@@ -88,11 +86,12 @@ class ProductProvider {
      */
     public function getProductsByAttribute($attribute, $value) {
         $attribute = strtolower($attribute);
+        $requiresWildcard = $attribute == "name";
 
         if ($this->isValidProductAttribute($attribute)) {
             $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE $attribute LIKE ?");
 
-            if ($stmt->execute(["%$value%"]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+            if ($stmt->execute([$requiresWildcard ? "%$value%" : $value]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
                 return $result;
             }
         }
@@ -110,7 +109,7 @@ class ProductProvider {
     }
 
     /**
-     * Deletes a product from the database based on the productId
+     * Deletes a product from the database based on the id of the product
      * @param $id int the Id of the product to delete
      * @return bool Boolean result of operation
      */
@@ -119,6 +118,3 @@ class ProductProvider {
         return $stmt->execute([$id]);
     }
 }
-
-//TODO make it so if the user selects a specific attribute like ID, or Size, Stock that it will use equal instead of LIKE to find results
-//TODO make sure to comment all code

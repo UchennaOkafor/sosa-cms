@@ -61,7 +61,6 @@ function sanitizeHtml($string) {
 
     <!-- Main Content -->
     <div class="container-fluid">
-
         <div class="side-body">
             <div class="page-header">
                 <h3>Inventory console</h3>
@@ -73,8 +72,8 @@ function sanitizeHtml($string) {
                     <br>
                     <form action="../dash/view.php" class="form-inline">
                         <div class="form-group">
-                            <label for="queryFilter">Refine search by</label>
-                            <select id="queryFilter" name="attr" class="form-control">
+                            <label for="query-filter">Refine search by</label>
+                            <select id="query-filter" name="attr" class="form-control">
                                 <option <?php if ($attribute == "Id") echo "selected"; ?>>Id</option>
                                 <option <?php if ($attribute == "Name") echo "selected"; ?>>Name</option>
                                 <option <?php if ($attribute == "Price") echo "selected"; ?>>Price</option>
@@ -154,6 +153,12 @@ function sanitizeHtml($string) {
                         echo $warningAlert;
                     }
                     ?>
+
+                    <a class="btn btn-primary pull-right" href="product.php?action=add">Add product
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <br>
+                    <br>
                 </div>
             </div>
 
@@ -183,9 +188,4 @@ function sanitizeHtml($string) {
 </body>
 </html>
 
-<!--TODO fix head html tag-->
-<!--TODO ensure that data output to the user has been well sanatized to prevent XSS attacks-->
-<!--TODO Work on the naming conventions for all id elements. Make sure they use the dash convention and not pascal casing, so btn-new-product instead of btnNewProduct-->
 <!--TODO Once design of site is complete, try and implement Bootstrap4-->
-<!--TODO Remove all <br> tags-->
-<!--TODO Use those methods to determine the folder instead of using .. to go back a folder-->

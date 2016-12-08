@@ -38,13 +38,15 @@ $(function () {
                 alertMsg = "Product could not be deleted";
             }
 
-            $("#deleteAlert").attr("class", classValue).html("<strong>" + alertMsg + "</strong>").show().delay(5000).fadeOut(400);
+            $("#deleteAlert").attr("class", classValue).html("<strong>" + alertMsg + "</strong>").show().delay(4000).fadeOut(400);
         });
     });
 
-    $("#multipurpose-form").submit(function(e) {
-        e.preventDefault();
+    $("#multipurpose-form").submit(function(event) {
+        event.preventDefault();
         var form = $(this);
+        var classValue = "";
+        var outputMSg = "";
 
         $.ajax({
             url : form.attr("action"),
@@ -52,8 +54,7 @@ $(function () {
             data : form.serialize(),
             success: function(json) {
                 var responseMsg = JSON.parse(json);
-                var classValue = responseMsg.success ? "alert alert-success" : "alert alert-danger";
-                var outputMSg = "";
+                classValue = responseMsg.success ? "alert alert-success" : "alert alert-danger";
 
                 if (form.serialize().includes("action=add")) {
                     if (responseMsg.success) {
@@ -71,12 +72,13 @@ $(function () {
                         outputMSg += getErrorMessagesAsList(responseMsg.errorMessages);
                     }
                 }
-
-                $("#multipurpose-alert").attr("class", classValue).html(outputMSg).show().delay(6000).fadeOut(500);
             },
             error: function (xhr, textStatus, errorThrown) {
-                var text = "A " + xhr.status + "<strong>[" + xhr.statusText + "]</strong> network error has occurred";
-                $("#multipurpose-alert").attr("class", "alert alert-danger").html(text).show().delay(6000).fadeOut(500);
+                outputMSg = "A " + xhr.status + "<strong>[" + xhr.statusText + "]</strong> network error has occurred";
+                classValue = "alert alert-danger";
+            },
+            complete: function () {
+                $("#multipurpose-alert").attr("class", classValue).html(outputMSg).show().delay(6000).fadeOut(500);
             }
         });
 
@@ -111,5 +113,3 @@ function escapeHTML(s) {
         }[c];
     });
 }
-
-//TODO tidy up javascript/jquery
