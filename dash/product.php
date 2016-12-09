@@ -2,7 +2,7 @@
 require "middleware.php";
 require "../backend/provider/ProductProvider.php";
 
-use \Cms\Provider\ProductProvider;
+use \Sosa\Provider\ProductProvider;
 
 $id = null;
 $product = null;
@@ -39,6 +39,10 @@ if (isset($_GET["id"])) {
     <script src="../assests/js/main.js"></script>
 
     <style>
+
+        /*Full credits to the owner of the card css, full link below*/
+        /*http://bootsnipp.com/snippets/featured/box-material-design*/
+
         body{ background: #EDECEC}
 
         .box {
@@ -98,9 +102,12 @@ if (isset($_GET["id"])) {
     <!-- Main Content -->
     <div class="container">
         <div class="side-body">
+<!--            Full credits to the owner of the card layout, link below-->
+<!--            http://bootsnipp.com/snippets/featured/box-material-design-->
             <div class="box">
                 <div class="box-icon">
-                    <img src="https://cdn4.iconfinder.com/data/icons/e-commerce-and-shopping-3/500/checked-checklist-notepad-128.png" alt=""/>
+                    <!-- Got image from https://www.iconfinder.com/icons/532781/checked_checklist_checkmark_clipboard_notepad_report_tasks_icon#size=128 -->
+                    <img src="../assests/images/checklist-product.png" alt=""/>
                 </div>
                 <div class="info">
                     <h4 class="text-center"><?php echo $actionIsAdd ? "Add new product" : "Edit product" ?></h4>

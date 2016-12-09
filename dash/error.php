@@ -17,7 +17,6 @@
         }
     </style>
 </head>
-
 <body>
 
 <div class="container">
@@ -31,7 +30,7 @@
                 echo "There was an error trying to connect to the database.<br>";
                 echo "<b>Error: " . htmlspecialchars($_SESSION["DB_ERROR_MSG"], ENT_QUOTES, 'UTF-8') . "</b>";
             } else {
-                echo "Oops, looks like something has gone wrong. Hmmm.. this seems serious.";
+                echo "Sorry there is no error message to view here. Please return to the home page";
             }
         ?>
         </div>

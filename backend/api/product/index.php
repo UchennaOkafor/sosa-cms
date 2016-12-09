@@ -2,11 +2,12 @@
 
 session_start();
 
-require "../../ProductService.php";
+require "../../service/ProductService.php";
 
-use \Cms\Models\ResponseMessage;
-use \Cms\Service\ProductService;
+use \Sosa\Models\ResponseMessage;
+use \Sosa\Service\ProductService;
 
+//This is the API endpoint for the various AJAX requests.
 $responseMsg = new ResponseMessage(false, []);
 
 if (isset($_POST["csrf_token"]) && $_SESSION["csrf_token"] == $_POST["csrf_token"]) {
@@ -32,21 +33,8 @@ if (isset($_POST["csrf_token"]) && $_SESSION["csrf_token"] == $_POST["csrf_token
             $errorMessages[] = "Action not specified";
             break;
     }
-
 } else {
     $responseMsg->errorMessages[] = "Request was not recognized by server. Please reload the page and try again [Invalid request token]";
 }
 
 echo json_encode($responseMsg);
-
-function requiredParamsNotEmpty() {
-    $keys = ["name", "price", "stock", "size", "type"];
-
-    foreach ($keys as $key) {
-        if (! isset($_POST[$key])) {
-            return false;
-        }
-    }
-
-    return true;
-}

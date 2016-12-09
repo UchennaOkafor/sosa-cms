@@ -1,14 +1,19 @@
 <?php
 
-namespace Cms\Service;
+namespace Sosa\Service;
 
-use Cms\Models\ResponseMessage;
-use Cms\Provider\ProductProvider;
+use Sosa\Models\ResponseMessage;
+use Sosa\Provider\ProductProvider;
 
-require "db/Database.php";
-require "provider/ProductProvider.php";
-require "models/ResponseMessage.php";
+require "../../db/Database.php";
+require "../../provider/ProductProvider.php";
+require "../../models/ResponseMessage.php";
 
+/**
+ * This is the business logic layer of the application
+ * Class ProductService
+ * @package Sosa\Service
+ */
 class ProductService {
 
     /**
@@ -59,29 +64,29 @@ class ProductService {
     }
 
     private function validateProductInput($name, $price, $stock, $size, $type) {
-        $errorMsgs = [];
+        $errorMessages = [];
 
         if (empty($name) || strlen($name) > 100) {
-            $errorMsgs[] = "Product name cannot be empty or be greater than 100 characters";
+            $errorMessages[] = "Product name cannot be empty or be greater than 100 characters";
         }
 
         if (! preg_match("/^\d{1,8}(\.\d{1,2})?$/", $price)) {
-            $errorMsgs[] = "Price entered must a valid 2 decimal place number. Price must not be greater than 8 digits";
+            $errorMessages[] = "Price entered must a valid 2 decimal place number. Price must not be greater than 8 digits";
         }
 
         if (! filter_var($stock, FILTER_VALIDATE_INT)) {
-            $errorMsgs[] = "Stock value is not a valid integer";
+            $errorMessages[] = "Stock value is not a valid integer";
         }
 
         if (! in_array($size, ["XS", "S", "M", "L", "XL"])) {
-            $errorMsgs[] = "Invalid size entered";
+            $errorMessages[] = "Invalid size entered";
         }
 
         if (! in_array($type, ["Clothes", "Accessory"])) {
-            $errorMsgs[] = "Product must either be an Accessory or Clothes";
+            $errorMessages[] = "Product must either be an Accessory or Clothes";
         }
 
-        $success = sizeof($errorMsgs) == 0;
-        return new ResponseMessage($success, $errorMsgs);
+        $success = sizeof($errorMessages) == 0;
+        return new ResponseMessage($success, $errorMessages);
     }
 }

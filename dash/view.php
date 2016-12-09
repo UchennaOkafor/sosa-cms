@@ -1,6 +1,6 @@
 <?php
 
-use \Cms\Provider\ProductProvider;
+use \Sosa\Provider\ProductProvider;
 
 require "middleware.php";
 require "../backend/provider/ProductProvider.php";
@@ -62,9 +62,9 @@ function sanitizeHtml($string) {
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <div class="page-header">
-                <h3>Inventory console</h3>
-            </div>
+
+            <h3>Sosa | Console Panel</h3>
+            <div class="panel panel-default"></div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Manage products</div>
@@ -162,30 +162,29 @@ function sanitizeHtml($string) {
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title">Confirm delete</h4>
-                        </div>
-                        <div id="deleteModalBody" class="modal-body"> </div>
-                        <div class="modal-footer">
-                            <button id="btn-delete-item" type="button" class="btn btn-danger">Yes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="deleteAlert" class="alert hidden" role="alert"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Confirm delete</h4>
+            </div>
+            <div id="deleteModalBody" class="modal-body"> </div>
+            <div class="modal-footer">
+                <button id="modalDeleteBtn" type="button" class="btn btn-danger">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
         </div>
     </div>
 </div>
 
 </body>
 </html>
-
-<!--TODO Once design of site is complete, try and implement Bootstrap4-->

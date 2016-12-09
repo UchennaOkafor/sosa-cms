@@ -2,7 +2,7 @@
 
 session_start();
 
-use Cms\Database\Config\Database;
+use Sosa\Database\Config\Database;
 
 require "../backend/db/Database.php";
 

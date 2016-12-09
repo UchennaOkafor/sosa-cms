@@ -1,6 +1,6 @@
 <?php
 
-namespace Cms\Database\Config;
+namespace Sosa\Database\Config;
 
 use PDO;
 use PDOException;

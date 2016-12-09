@@ -1,14 +1,15 @@
 <?php
 
-namespace Cms\Provider;
+namespace Sosa\Provider;
 
-use Cms\Database\Config\Database;
+use Sosa\Database\Config\Database;
 use PDO;
 
+
 /**
- * This class is used to abstract the basic CRUD functionality of the products table and other functionalities.
- * This is the data access layer
+ * This is the database abstraction layer of the system
  * Class ProductProvider
+ * @package Sosa\Provider
  */
 class ProductProvider {
 

@@ -1,6 +1,12 @@
 <?php
-namespace Cms\Models;
 
+namespace Sosa\Models;
+
+/**
+ * A generic template for all API responses
+ * Class ResponseMessage
+ * @package Sosa\Models
+ */
 class ResponseMessage {
 
     /**
