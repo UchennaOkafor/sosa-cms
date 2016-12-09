@@ -39,11 +39,8 @@ if (isset($_GET["id"])) {
     <script src="../assests/js/main.js"></script>
 
     <style>
-
         /*Full credits to the owner of the card css, full link below*/
         /*http://bootsnipp.com/snippets/featured/box-material-design*/
-
-        body{ background: #EDECEC}
 
         .box {
             border-radius: 0;

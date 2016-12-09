@@ -1,5 +1,5 @@
 /*Some of the css here is for the profile image. Full credits to the creator, link below*/
-/*http://bootsnipp.com/snippets/featured/profile-picture-with-badge*/
+/* http://bootsnipp.com/snippets/featured/profile-picture-with-badge */
 
 .profile-header-container{
     margin: 0 auto;
@@ -25,6 +25,7 @@
     border-radius: 27px;
 }
 
+/*All the css below this line is my own */
 .panel-body {
     padding: 4px;
 }
@@ -33,11 +34,33 @@
     border-radius: 0;
 }
 
+.table-container {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 .btn {
     border-radius: 2px;
 }
 
-.table-container {
-    padding-left: 10px;
-    padding-right: 10px;
+body{
+    background-color: #EDECEC
+}
+
+.panel-sosa > .panel-heading {
+    color: #FFFFFF;
+    background-color: #c3c3c3;
+    border-color: #51d2b7;
+    border-bottom-width: 2px;
+}
+
+.panel-sosa {
+    border-color: #e8e8e8;
+}
+
+.side-body > h3 {
+    margin-top: 20px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }

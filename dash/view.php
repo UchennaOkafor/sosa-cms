@@ -64,10 +64,11 @@ function sanitizeHtml($string) {
         <div class="side-body">
 
             <h3>Sosa | Console Panel</h3>
-            <div class="panel panel-default"></div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Manage products</div>
+            <div class="panel panel-sosa">
+                <div class="panel-heading">
+                    <strong>Manage products</strong>
+                </div>
                 <div class="container-fluid">
                     <br>
                     <form action="../dash/view.php" class="form-inline">
@@ -161,7 +162,6 @@ function sanitizeHtml($string) {
                     <br>
                 </div>
             </div>
-
             <div id="deleteAlert" class="alert hidden" role="alert"></div>
         </div>
     </div>
