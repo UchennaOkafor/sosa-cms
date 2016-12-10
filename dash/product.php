@@ -100,7 +100,7 @@ if (isset($_GET["id"])) {
     <div class="container">
         <div class="side-body">
 <!--            Full credits to the owner of the card layout, link below-->
-<!--            http://bootsnipp.com/snippets/featured/box-material-design-->
+<!--            http://bootsnipp.com/snippets/featured/box-material-design -->
             <div class="box">
                 <div class="box-icon">
                     <!-- Got image from https://www.iconfinder.com/icons/532781/checked_checklist_checkmark_clipboard_notepad_report_tasks_icon#size=128 -->
