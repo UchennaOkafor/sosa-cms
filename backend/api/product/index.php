@@ -11,7 +11,6 @@ use \Sosa\Service\ProductService;
 $responseMsg = new ResponseMessage(false, []);
 
 if (isset($_POST["csrf_token"]) && $_SESSION["csrf_token"] == $_POST["csrf_token"]) {
-    $action = isset($_POST["action"]) ? $_POST["action"] : "";
 
     $productService = new ProductService();
     $action = isset($_POST["action"]) ? $_POST["action"] : null;
