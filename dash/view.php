@@ -65,7 +65,7 @@ function sanitizeHtml($string) {
             <h3 class="page-title">S o s a | Console Panel</h3>
             <div class="panel panel-sosa">
                 <div class="panel-heading">
-                    <strong>Manage products</strong>
+                    <strong>MANAGE PRODUCTS</strong>
                 </div>
                 <div class="container-fluid">
                     <br>
