@@ -157,18 +157,20 @@ if (isset($_GET["id"])) {
                         <div class="form-group input-group">
                             <label for="size">Size</label>
                             <select id="size" name="size" class="form-control" required>
+                                <option disabled selected></option>
                                 <option <?php if ($product != null && $product["size"] == "XS") echo "selected"; ?>>XS</option>
                                 <option <?php if ($product != null && $product["size"] == "S") echo "selected"; ?>>S</option>
                                 <option <?php if ($product != null && $product["size"] == "M") echo "selected"; ?>>M</option>
                                 <option <?php if ($product != null && $product["size"] == "L") echo "selected"; ?>>L</option>
                                 <option <?php if ($product != null && $product["size"] == "XL") echo "selected"; ?>>XL</option>
+                                <option <?php if ($product != null && $product["size"] == "N/A") echo "selected"; ?>>N/A</option>
                             </select>
                         </div>
 
                         <label>Type</label>
                         <div class="form-group">
                             <label class="radio-inline">
-                                <input type="radio" name="type" id="clothes-radio" value="Clothes" checked>Clothes
+                                <input type="radio" name="type" id="clothes-radio" value="Clothes" <?php if ($product != null && $product["type"] == "Clothes") echo "checked"; ?> required>Clothes
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="type" id="accessory-radio" value="Accessory" <?php if ($product != null && $product["type"] == "Accessory") echo "checked"; ?>>Accessory
@@ -179,7 +181,7 @@ if (isset($_GET["id"])) {
                         <input name="csrf_token" type="hidden" value="<?php echo $_SESSION["csrf_token"] ?>">
 
                         <hr>
-                        <input type="submit" class="btn <?php echo $actionIsAdd ? "btn-primary" : "btn-success" ?> pull-right" value="<?php echo $actionIsAdd ? "Add product" : "Update product" ?> ">
+                        <input type="submit" data-loading-text="Loading..." autocomplete="off" class="btn <?php echo $actionIsAdd ? "btn-primary" : "btn-success" ?> pull-right" value="<?php echo $actionIsAdd ? "Add product" : "Update product" ?> ">
                         <hr>
                     </form>
                 </div>

@@ -108,7 +108,7 @@ function sanitizeHtml($string) {
                         <tbody>
 
                         <?php
-                        $products = [];
+                        $products = array();
                         $productProvider = new ProductProvider();
 
                         if (empty($attribute) || empty($query)) {
@@ -143,13 +143,17 @@ function sanitizeHtml($string) {
 
                     <?php
                     if ($products == null) {
-                        $filteredInput = sanitizeHtml($query);
-                        $warningAlert =
-                            "<div class=\"alert alert-warning\">
-                                Sorry, but no item with the $attribute <strong>\"$filteredInput\"</strong> could be found in the database. Please refine your search query.
-                            </div>";
+                        $filteredQuery = sanitizeHtml($query);
+                        $filteredAttribute = sanitizeHtml($attribute);
+                        $errorMsg = "Null";
 
-                        echo $warningAlert;
+                        if ($productProvider->getTotalProductsCount() == 0) {
+                            $errorMsg = "Sorry, but there are currently no products in the database. Please create a new product in order for it to be listed here.";
+                        } else {
+                            $errorMsg = "Sorry, but no item with the $filteredAttribute <strong>\"$filteredQuery\"</strong> could be found in the database. Please refine your search query.";
+                        }
+
+                        echo  "<div class=\"alert alert-warning\">$errorMsg</div>";
                     }
                     ?>
 
@@ -177,8 +181,8 @@ function sanitizeHtml($string) {
             </div>
             <div id="deleteModalBody" class="modal-body"> </div>
             <div class="modal-footer">
-                <button id="modalDeleteBtn" type="button" class="btn btn-danger">Yes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button id="modalDeleteBtn" type="button" data-loading-text="Loading..." class="btn btn-danger">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

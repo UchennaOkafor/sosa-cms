@@ -43,13 +43,14 @@ $(function () {
 
         var alertMsg = "";
         var classValue = "";
+        var deleteButton = $(this);
 
         $.ajax({
             url : "/sosa-cms/backend/api/product/",
             type : "POST",
             data : postForm,
             beforeSend: function () {
-                $("#deleteModal").modal("hide");
+                deleteButton.button("loading");
                 return true;
             },
             success: function(json) {
@@ -79,6 +80,8 @@ $(function () {
                 classValue = "alert alert-danger";
             },
             complete: function () {
+                deleteButton.button("reset");
+                $("#deleteModal").modal("hide");
                 $("#deleteAlert").attr("class", classValue).html("<strong>" + alertMsg + "</strong>").show().delay(4000).fadeOut(400);
             }
         });
@@ -87,6 +90,9 @@ $(function () {
     $("#multipurpose-form").submit(function(event) {
         event.preventDefault();
         var form = $(this);
+
+        var submitButton = $("input[type=submit]", form);
+
         var classValue = "";
         var outputMsg = "";
 
@@ -94,6 +100,10 @@ $(function () {
             url : form.attr("action"),
             type : form.attr("method"),
             data : form.serialize(),
+            beforeSend: function () {
+                submitButton.button("loading");
+                return true;
+            },
             success: function(json) {
                 var responseJson = null;
 
@@ -112,7 +122,7 @@ $(function () {
                     if (form.serialize().includes("action=add")) {
                         if (responseJson.success) {
                             outputMsg = "<strong>Congratulations, the product has been created successfully!</strong>";
-                            $(this).trigger("reset");
+                            form.trigger("reset");
                         } else {
                             outputMsg += "<strong>Sorry, but the product could not be added.</strong>";
                             outputMsg += getErrorMessagesAsList(responseJson.errorMessages);
@@ -133,6 +143,7 @@ $(function () {
             },
             complete: function () {
                 $("#multipurpose-alert").attr("class", classValue).html(outputMsg).show().delay(6000).fadeOut(500);
+                submitButton.button("reset");
             }
         });
 

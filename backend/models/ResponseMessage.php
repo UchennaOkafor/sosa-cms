@@ -8,7 +8,6 @@ namespace Sosa\Models;
  * @package Sosa\Models
  */
 class ResponseMessage {
-
     /**
      * @var bool
      */

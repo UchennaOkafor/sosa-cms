@@ -25,6 +25,10 @@ class ProductProvider {
         $this->pdoInstance = Database::getInstance();
     }
 
+    public function getTotalProductsCount() {
+        return intval($this->pdoInstance->query("SELECT COUNT(*) FROM products")->fetchColumn());
+    }
+
     /**
      * Checks if a product exists in the database
      * @param $id int The id of the product to check
@@ -32,14 +36,14 @@ class ProductProvider {
      */
     public function isProductExists($id) {
         $stmt = $this->pdoInstance->prepare("SELECT id FROM products WHERE id = ? LIMIT 1");
-        return $stmt->execute([$id]) && $stmt->rowCount() == 1;
+        return $stmt->execute(array($id)) && $stmt->rowCount() == 1;
     }
 
     public function addProduct($name, $price, $stock, $type, $size) {
         $stmt = $this->pdoInstance->prepare("INSERT INTO products(name, price, stock, size, type)
                                              VALUES(?, ?, ?, ?, ?)");
 
-        return $stmt->execute([$name, $price, $stock, $size, $type]) && $stmt->rowCount() == 1;
+        return $stmt->execute(array($name, $price, $stock, $size, $type)) && $stmt->rowCount() == 1;
     }
 
     /**
@@ -61,7 +65,7 @@ class ProductProvider {
                                              SET name = ?, `type` = ?, price = ?, stock = ?, size = ? 
                                              WHERE id = ?");
 
-        return $stmt->execute([$name, $type, $price, $stock, $size, $id]);
+        return $stmt->execute(array($name, $type, $price, $stock, $size, $id));
     }
 
     /**
@@ -72,7 +76,7 @@ class ProductProvider {
     public function getProductById($id) {
         $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE id = ?");
 
-        if ($stmt->execute([$id]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+        if ($stmt->execute(array($id)) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
             return $result[0];
         }
 
@@ -92,7 +96,7 @@ class ProductProvider {
         if ($this->isValidProductAttribute($attribute)) {
             $stmt = $this->pdoInstance->prepare("SELECT * FROM products WHERE $attribute LIKE ?");
 
-            if ($stmt->execute([$requiresWildcard ? "%$value%" : $value]) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+            if ($stmt->execute(array($requiresWildcard ? "%$value%" : $value)) && $result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
                 return $result;
             }
         }
@@ -106,7 +110,7 @@ class ProductProvider {
      * @return bool the boolean result of the operation
      */
     private function isValidProductAttribute($attr) {
-        return in_array($attr, ["id", "name", "type", "size", "price", "stock"]);
+        return in_array($attr, array("id", "name", "type", "size", "price", "stock"));
     }
 
     /**
@@ -116,6 +120,6 @@ class ProductProvider {
      */
     public function deleteProduct($id) {
         $stmt = $this->pdoInstance->prepare("DELETE FROM products WHERE id = ?");
-        return $stmt->execute([$id]);
+        return $stmt->execute(array($id));
     }
 }

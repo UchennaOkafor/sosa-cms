@@ -26,7 +26,7 @@ class ProductService {
     }
 
     public function tryDeleteProduct($id) {
-        $errorMessages = [];
+        $errorMessages = array();
         $success = false;
 
         if (! $this->productProvider->isProductExists($id)) {
@@ -64,7 +64,7 @@ class ProductService {
     }
 
     private function validateProductInput($name, $price, $stock, $size, $type) {
-        $errorMessages = [];
+        $errorMessages = array();
 
         if (empty($name) || strlen($name) > 100) {
             $errorMessages[] = "Product name cannot be empty or be greater than 100 characters";
@@ -78,11 +78,11 @@ class ProductService {
             $errorMessages[] = "Stock value is not a valid integer";
         }
 
-        if (! in_array($size, ["XS", "S", "M", "L", "XL"])) {
+        if (! in_array($size, array("XS", "S", "M", "L", "XL", "N/A"))) {
             $errorMessages[] = "Invalid size entered";
         }
 
-        if (! in_array($type, ["Clothes", "Accessory"])) {
+        if (! in_array($type, array("Clothes", "Accessory"))) {
             $errorMessages[] = "Product must either be an Accessory or Clothes";
         }
 

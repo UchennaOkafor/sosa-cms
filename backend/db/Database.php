@@ -5,8 +5,8 @@ namespace Sosa\Database\Config;
 use PDO;
 use PDOException;
 
-class Database {
-
+class Database
+{
     const DB_HOST = "localhost";
     const DB_NAME = "sosa";
     const DB_USER = "root";
@@ -27,7 +27,7 @@ class Database {
     }
 
     public function __construct() {
-        $connectionString = "mysql:dbname=" . self::DB_HOST . ";dbname=" . self::DB_NAME;
+        $connectionString = "mysql:host=" . self::DB_HOST . ";dbname=" . self::DB_NAME;
 
         try {
             self::$pdoInstance = new PDO($connectionString, self::DB_USER, self::DB_PASS);
