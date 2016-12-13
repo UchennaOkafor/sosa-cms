@@ -46,7 +46,7 @@ $(function () {
         var deleteButton = $(this);
 
         $.ajax({
-            url : "/sosa-cms/backend/api/product/",
+            url : "../backend/api/product/",
             type : "POST",
             data : postForm,
             beforeSend: function () {
