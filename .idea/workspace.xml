@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="54">
+              <first_editor relative-caret-position="-47">
                 <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -534,14 +534,7 @@
       <workItem from="1481515586899" duration="2209000" />
       <workItem from="1481527561504" duration="1209000" />
       <workItem from="1481532002371" duration="842000" />
-      <workItem from="1481668342877" duration="2721000" />
-    </task>
-    <task id="LOCAL-00015" summary="*Minor project structure change">
-      <created>1479400194695</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1479400194695</updated>
+      <workItem from="1481668342877" duration="3368000" />
     </task>
     <task id="LOCAL-00016" summary="*Implementing delete api function&#10;*Implementing CSRF guard">
       <created>1479402075113</created>
@@ -879,11 +872,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481676161742</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="* Updated ReadMe">
+      <created>1481676266303</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1481676266303</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230758000" />
+    <option name="totallyTimeSpent" value="231405000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1329,7 +1329,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="54">
+          <first_editor relative-caret-position="-47">
             <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
             <folding />
           </first_editor>
