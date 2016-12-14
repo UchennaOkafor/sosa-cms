@@ -50,8 +50,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="36">
-                <caret line="2" column="77" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+              <first_editor relative-caret-position="331">
+                <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -534,14 +534,7 @@
       <workItem from="1481515586899" duration="2209000" />
       <workItem from="1481527561504" duration="1209000" />
       <workItem from="1481532002371" duration="842000" />
-      <workItem from="1481668342877" duration="2269000" />
-    </task>
-    <task id="LOCAL-00013" summary="*Removed embedded css&#10;*Removed embedded js&#10;*Deleted delete.php&#10;*Added search functionality&#10;*Changed product factory to product provider">
-      <created>1479393048730</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1479393048730</updated>
+      <workItem from="1481668342877" duration="2617000" />
     </task>
     <task id="LOCAL-00014" summary="*Implemented session/cookies functionality&#10;*Started implementing the use of CSRF tokens for validating requests&#10;*Implemented a middleware script&#10;*Implemented an error page">
       <created>1479399945614</created>
@@ -879,11 +872,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481668422609</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="* Updated ReadMe">
+      <created>1481675818114</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1481675818114</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230306000" />
+    <option name="totallyTimeSpent" value="230654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -974,7 +974,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="*Implemented delete function for the api" />
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="*Minor changed" />
     <MESSAGE value="* Implemented XSS input filtering&#10;* Improved search query functionality&#10;* Added error message when item cannot be found" />
@@ -999,7 +998,8 @@
     <MESSAGE value="* Refactor" />
     <MESSAGE value="* Used long array syntax due to PHP 5.3 constraint on university servers&#10;* Added better validation for null values&#10;* Improved system and database rationale&#10;* Improved user experience by adding loading indications for ajax requests" />
     <MESSAGE value="* Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Minor changes" />
+    <MESSAGE value="* Updated ReadMe" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Updated ReadMe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1329,8 +1329,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="36">
-            <caret line="2" column="77" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+          <first_editor relative-caret-position="331">
+            <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
             <folding />
           </first_editor>
           <second_editor />

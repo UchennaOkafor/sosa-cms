@@ -1,6 +1,8 @@
 # sosa-cms
 _Sosa-Cms_ is a web management panel for a clothing company. It incorporates the standard CRUD operations.
-It's written in Vanilla PHP. Below are screenshots of the various pages/parts of the system.
+It's written in Vanilla PHP \w phpMyAdmin(MySQL), JavaScript \w jQuery and CSS.
+
+Below are screenshots of the various pages/parts of the system.
 
 ##View
 
@@ -19,3 +21,11 @@ It's written in Vanilla PHP. Below are screenshots of the various pages/parts of
 ##Delete
 
 <img src="http://i.imgur.com/iQl1bvE.png">
+
+##Security
+Some of the security issues that were addressed in this site was
+
+* Robust error handling
+* CSRF
+* XSS
+* SQL Injection
