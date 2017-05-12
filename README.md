@@ -4,25 +4,25 @@ It's written in Vanilla PHP, HTML, MySQL \w phpMyAdmin, JavaScript \w jQuery and
 
 Below are screenshots of the various pages/parts of the system.
 
-##View
+## View
 
 <img src="http://i.imgur.com/s5rYWs7.png">
 
-##Add
+## Add
 
 <img src="http://i.imgur.com/qXIAiee.png">
 
 
-##Edit
+## Edit
 
 <img src="http://i.imgur.com/yyLtKTA.png">
 
 
-##Delete
+## Delete
 
 <img src="http://i.imgur.com/iQl1bvE.png">
 
-##Security
+## Security
 Some of the security issues that were addressed in this site was
 
 * Robust error handling
